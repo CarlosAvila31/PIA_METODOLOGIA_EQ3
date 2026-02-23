@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Divertiplay - Salón de eventos infantiles</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <meta name="description" content="Divertiplay - Salón de eventos infantiles. Servicios, galería, testimonios, ubicación y cotizador interactivo."/>
+    
+</head>
+
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="wrap hero-inner">
+            <!--Los span son las bolitas-->
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:28;"></span>
+
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+
+            <div class="lead">
+                <img class="logo" src="{% static 'img/LOGO-removebg-preview.png' %}" alt="Logo Diverti-tuplas" />
+            </div>
+
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+
+        </div>
+    </section>
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <nav class="main-nav" aria-label="Menú principal">
+                <a id="nosotros-nav" href="#nosotros">Nosotros</a>
+                <a id="instalaciones-nav" href="#instalaciones">Instalaciones</a>
+                <a id="servicios-nav" href="#servicios">Servicios</a>
+                <a id="galeria-nav" href="#galeria">Galería</a>
+                <a id="testimonios-nav" href="#testimonios">Testimonios</a>
+                <a id="faq-nav" href="#faq">FAQ</a>
+                <a id="cotizacion-nav" href="#cotizacion">Cotización</a>
+                <a id="contacto-nav" href="#contacto">Contacto</a>
+                <a id="ubicacion-nav" href="#ubicacion">Ubicación</a>
+            </nav>
+            <div class="nav-buttons">
+                <button id="themeToggle" aria-pressed="false" title="Alternar tema">🌗</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Nosotros -->
+        <section id="nosotros" class="section nosotros wrap">
+            <h2>Nosotros</h2>
+            <div class="nosotros-grid">
+                <div class="nosotros-text">
+                    <p>En Diverti-Tuplas, nos dedicamos a crear momentos mágicos e inolvidables para los más pequeños de la casa.
+                        Nuestro salón de eventos infantiles está diseñado para ofrecer un ambiente seguro, divertido y lleno de aventuras,
+                        donde cada niño puede ser el protagonista de su propia historia.</p>
+                    <p>Sin tuplas no hay diversión, !Diverti-Tuplas tu mejor opción!</p>
+                    <p><strong>Haz click en los textos para cambiar su tamaño.</strong></p>
+                    <p onclick="cambiarTamaño(this)"><strong>Misión:</strong> Crear experiencias seguras, divertidas y memorables para niñas y niños,
+                        fomentando la creatividad y la convivencia familiar.</p>
+                    <p onclick="cambiarTamaño(this)"><strong>Visión:</strong> Ser el salón de referencia en eventos infantiles en la región,
+                        reconocidos por la calidad de nuestras instalaciones y servicios.</p>
+                    <p onclick="cambiarTamaño(this)"><strong>Valores:</strong> Seguridad, diversión, inclusión y profesionalismo.</p>
+                </div>
+
+                <div class="nosotros-media">
+                    <!-- placeholder image, reemplazar por la imagen de las mascotas luego -->
+                    <img id="heroGif"
+                    src="{% static 'img/GIF_BG_OSCURO.gif' %}"
+                    data-dark="{% static 'img/GIF_BG_OSCURO.gif' %}"
+                    data-light="{% static 'img/GIF_BG_CLARO.gif' %}"
+                    alt="GIF de tuplin y tuplita"
+                    width="200" height="300">
+                    <div class="burbuja-dialogo">¡Hola, somos los Tuplines!</div>
+                </div>
+                
+                <div class="audio-wrapper">
+                    <audio controls autoplay loop>
+                        <source src="{% static 'audio/Diverti-Tuplas.mp3' %}" type="audio/mpeg">
+                    </audio>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Instalaciones / Galería destacada -->
+        <section id="instalaciones" class="section instalaciones wrap">
+        <h2>Instalaciones</h2>
+            <div class="insta-gallery">
+                <img src="{% static 'img/Salon1.jpg' %}" alt="Instalación 1" />
+                <img src="{% static 'img/Salon2.jpg' %}" alt="Instalación 2" />
+                <img src="{% static 'img/salon3.jpg' %}" alt="Instalación 3" />
+                <img src="{% static 'img/salon4.jpg' %}" alt="Instalación 4" />
+            </div>
+        </section>
+
+        <!-- Servicios (dinámico) -->
+        <section id="servicios" class="section servicios wrap">
+        <h2>Servicios</h2>
+        <div id="servicios-list"></div>
+                <table Border="1" cellpadding="5" cellspacing="0" >
+                    <caption><h1>Catálogo de Shows</h1></caption>
+                    <thead>
+                        <tr>
+                            <th>Nombre del Show</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Características</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for show in shows %}
+                        <tr>
+                            <td>{{ show.nombre_show }}</td>
+                            <td>{{ show.descripcion }}</td>
+                            <td>${{ show.precio }}</td>
+                            <td>{{ show.caracteristicas }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </section>
+
+        <!-- Galería -->
+        <section id="galeria" class="section galeria wrap">
+            <h2>Galería</h2>
+            <div class="carrusel-scroll">
+                <div class="carrusel-contenido">
+                    <img src="{% static 'img/evento1.jpg' %}" alt="Evento 1" />
+                    <img src="{% static 'img/evento2.jpg' %}" alt="Evento 2" />
+                    <img src="{% static 'img/evento3.jpg' %}" alt="Evento 3" />
+                    <img src="{% static 'img/evento4.jpg' %}" alt="Evento 4" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section id="testimonios" class="section testimonios wrap">
+            <h2>Testimonios</h2>
+            <div class="testimonials-grid">
+                <article class="testimonial">
+                    <img src="{% static 'img/ken.jpg' %}" alt="Ken" />
+                    <div>
+                        <strong>Ken A.</strong>
+                        <div class="stars">★★★★★</div>
+                        <p>Me encanta ver cómo cada fiesta se convierte en un recuerdo inolvidable. ¡Súper Recomendado!</p>
+                    </div>
+                </article>
+
+                <article class="testimonial">
+                    <img src="{% static 'img/sergio.jpeg' %}" alt="Sergio" />
+                    <div>
+                        <strong>Sergio A.</strong>
+                        <div class="stars">★★★★☆</div>
+                        <p>Los niños fueron pura energía. ¡Nos divertimos tanto!</p>
+                    </div>
+                </article>
+
+                <article class="testimonial">
+                    <img src="{% static 'img/carlos.jpeg' %}" alt="Carlos" />
+                    <div>
+                        <strong>Carlos A.</strong>
+                        <div class="stars">★★★★★</div>
+                        <p>Cada rincón está pensado para que se sientan seguros, libres y felices.</p>
+                    </div>
+                </article>
+
+                <article class="testimonial">
+                    <img src="{% static 'img/sofia.jpeg' %}" alt="Sofía" />
+                    <div>
+                        <strong>Sofía C.</strong>
+                        <div class="stars">★★★★☆</div>
+                        <p>¡La música y los efectos hacen que todo cobre vida!</p>
+                    </div>
+                </article>
+
+                <article class="testimonial">
+                    <img src="{% static 'img/brissa.jpeg' %}" alt="Brissa" />
+                    <div>
+                        <strong>Brissa F.</strong>
+                        <div class="stars">★★★★★</div>
+                        <p>Ver a los peques disfrutar su comida me llena el corazón. ¡Todo hecho con amor!</p>
+                    </div>
+                </article>
+
+                <article class="testimonial">
+                    <img src="{% static 'img/deva.jpeg' %}" alt="Deva" />
+                    <div>
+                        <strong>Deva G.</strong>
+                        <div class="stars">★★★★★</div>
+                        <p>Esta diseñado para cada experiencia como si fuera nuestra propia familia.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section faq wrap">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-list">
+                <details>
+                    <summary>¿Cuál es la capacidad máxima por evento?</summary>
+                    <p>Nuestra sala principal tiene capacidad para 60 niños y 80 adultos en espacios adicionales.</p>
+                </details>
+                <details>
+                    <summary>¿Ofrecen servicio de catering?</summary>
+                    <p>Sí, ofrecemos paquetes de alimentos para niños y adultos (opciones vegetarianas disponibles).</p>
+                </details>
+                <details>
+                    <summary>¿Puedo decorar según un tema específico?</summary>
+                    <p>Claro, contamos con paquetes temáticos y puedes personalizar decoraciones y actividades.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Cotización -->
+        <section id="cotizacion" class="section cotizacion wrap">
+            <h2>Cotización</h2>
+            <form id="cotizador" class="cotizador-form" onsubmit="return false;">
+                <label for="servicioSelect">Servicio</label>
+                <select id="servicioSelect" required>
+                    <option value="">-- Seleccione un servicio --</option>
+                </select>
+
+                <label for="cantidadInput">Duración (horas)</label>
+                <input id="cantidadInput" name="txtDuracion" type="number"/>
+
+                <fieldset class="discount">
+                    <legend>Descuento</legend>
+                    <label><input type="radio" name="discount" value="0" checked /> 0%</label>
+                    <label><input type="radio" name="discount" value="5" /> 5%</label>
+                    <label><input type="radio" name="discount" value="10" /> 10%</label>
+                    <label><input type="radio" name="discount" value="15" /> 15%</label>
+                </fieldset>
+
+                <div class="actions">
+                    <button id="calcularBtn" type="button">Calcular cotización</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="section contacto wrap">
+            <h2>Formulario de Contacto</h2>
+            <p>¿Tienes alguna duda? ¡Contáctanos, te atenderemos lo más rápido posible!</p>
+            <form id="contactForm" class="contact-form" novalidate>
+                <label for="name">Nombre</label>
+                <input id="name" name="name" type="text" pattern="[A-Za-z]+" required minlength="2"/>
+
+                <label for="email">Correo</label>
+                <input id="email" name="email" type="email" required />
+
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" pattern="^\d{10}$" />
+
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </section>
+
+        <!-- Ubicación -->
+        <section id="ubicacion" class="section ubicacion wrap">
+            <h2>Ubicación</h2>
+            <p>Nuestra dirección: ACEROS TUPLASA, S.A. DE C.V., Irapuato, Guanajuato. Haz zoom o muévete en el mapa.</p>
+            <!-- Google Maps embed: reemplaza coords/URL por la tuya -->
+            <div class="map-wrapper" aria-hidden="false">
+                <iframe title="Mapa Diverti-tuplas"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.8812933438026!2d-101.33533469999999!3d20.6744079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c81dbf1489ed7%3A0x938cdaad55952dd!2sACEROS%20TUPLASA%2C%20S.A.%20DE%20C.V.!5e0!3m2!1ses-419!2smx!4v1762748809407!5m2!1ses-419!2smx" >
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-block">
+                <h4>Información</h4>
+                <div class="dato">
+                    <span>ACEROS TUPLASA, S.A. DE C.V., Irapuato, Guanajuato</span>
+                </div>
+                <div class="dato">
+                    <span>Horario: Lun-Dom 9:00am - 10:00pm</span>
+                </div>
+                <div class="dato">
+                    <span>Tel: (81) 1234-5678</span>
+                </div>
+                <div class="dato">
+                    <span>info@divertiTUPLAS.com</span>
+                </div>
+            </div>
+
+            <div class="footer-block">
+                <h4>Síguenos</h4>
+                <div class="redes-sociales">
+                    <a target="_blank" class="btn-red-social">Instagram</a>
+                    <a target="_blank" class="btn-red-social">Facebook</a>
+                    <a target="_blank" class="btn-red-social">TikTok</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© <span id="currentYear"></span> Diverti-Tuplas</p>
+    </footer>
+</body>
+</html>
