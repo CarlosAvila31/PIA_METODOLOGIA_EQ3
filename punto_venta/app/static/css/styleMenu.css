@@ -52,3 +52,50 @@ body {
   color: #ccc;
   cursor: not-allowed;
 }
+
+.navbar-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li {
+  position: relative;
+  float: left;
+}
+
+.navbar-nav li a {
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  width: 95px;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+}
+
+
+.submenuG{
+  position: absolute;
+  display: none; /*Ocutar el submenu por defecto*/
+}
+.navbar-nav li:hover .submenuG{
+  display: block; /*Mostrar el submenu al pasar el mouse por encima del elemento padre*/
+  background-color: #b2dfdb;
+  padding: 10px;
+  border-radius: 5px;
+  top: 100%; /*Posicionar el submenu debajo del elemento padre*/
+  left: 0; /*Alinear el submenu a la izquierda del elemento padre*/
+} 
+
+.subM:hover {
+  background-color: #00796b;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.subM{
+  float: none;
+  font-weight: 500;
+}
