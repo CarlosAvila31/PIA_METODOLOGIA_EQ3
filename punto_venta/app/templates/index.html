@@ -1,381 +1,475 @@
 <!DOCTYPE html>
 <html lang="es" translate="no">
-
 <head>
     {% load static %}
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>Divertiplay - Salón de eventos infantiles</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <meta name="description" content="Divertiplay - Salón de eventos infantiles. Servicios, galería, testimonios, ubicación y cotizador interactivo."/>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Para que se vea bien en dispositivos moviles -->
+    <link rel="shortcut icon" href="{% static 'img/taza-cafe.webp' %}" type="image/x-icon"> <!-- Icono de la página -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Fuente de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ovo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styleIndex.css' %}"> <!-- Enlace al archivo CSS -->
+    <title>Cafetería</title>
 </head>
-
 <body>
-    <!-- Hero -->
-    <section class="hero">
-        <div class="wrap hero-inner">
-            <!--Los span son las bolitas-->
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:20;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:28;"></span>
+    <header class="site-header"> 
+     <div class="header-inner">
+         <div class="logo-card">
+             <span>CAFÉ </span>
+             <span>ALMENDRA</span>
+         </div>
+         <nav class="w-100">
+            <ul> <!-- Menú de navegación de la página -->
+             <li><a href="#menu"><i class="fa-solid fa-bars"></i>&nbsp;<span class="d-none d-sm-inline">Menú</span></a></li>
+             <li><a href="#promociones"><i class="fa-solid fa-tag"></i>&nbsp;<span class="d-none d-sm-inline">Promociones</span></a></li>
+             <li><a href="#nosotros"><i class="fa-solid fa-people-group"></i>&nbsp;<span class="d-none d-sm-inline">Nosotros</span></a></li>
+             <li><a href="#contacto"><i class="fa-solid fa-envelope"></i>&nbsp;<span class="d-none d-sm-inline">Contacto</span></a></li>
+             <li><a href="{% url 'login' %}" class="btn" aria-label="Iniciar Sesión"><i class="fa-solid fa-money-bill"></i>&nbsp;<span class="d-none d-sm-inline">Venta</span></a></li>
+            </ul>
+         </nav>
+     </div>
+ </header>
+    <!-- Contenido Principal -->
+    <div class="content">
+        <div class="carrusel"> <!-- Fotos giratorias -->
+            <div class="img-productos">
+                <img src="{% static 'img/capuchino.jpg' %}" alt="Capuchino">
+                <img src="{% static 'img/croissant.jpeg' %}" alt="Croissant">
+                <img src="{% static 'img/brownies.jfif' %}" alt="brownies">
+                <img src="{% static 'img/cheesecake.webp' %}" alt="Cheesecake">
+                <img src="{% static 'img/caramel macchiato.jfif' %}" alt="caramel macchiato">
+                <img src="{% static 'img/panini.jpg' %}" alt="Panini">
+                <img src="{% static 'img/Caramel Matcha Latte.jfif' %}" alt="matcha latte">
+                <img src="{% static 'img/te.webp' %}" alt="Té">
+                <img src="{% static 'img/Nutella Tiramisu.jfif' %}" alt="tiramisu">
+                <img src="{% static 'img/Dry Cappuccino.jfif' %}" alt="capuchine">
+                <img src="{% static 'img/capuchino.jpg' %}" alt="Capuchino">
+                <img src="{% static 'img/brownies.jfif' %}" alt="brownies">
+                <img src="{% static 'img/croissant.jpeg' %}" alt="Croissant">
+                <img src="{% static 'img/caramel macchiato.jfif' %}" alt="caramel macchiato">
+                <img src="{% static 'img/cheesecake.webp' %}" alt="Cheesecake">
+                <img src="{% static 'img/Caramel Matcha Latte.jfif' %}" alt="matcha latte">
+                <img src="{% static 'img/panini.jpg' %}" alt="Panini">
+                <img src="{% static 'img/brownies.jfif' %}" alt="brownies">
+                <img src="{% static 'img/te.webp' %}" alt="Té">
+                <img src="{% static 'img/Dry Cappuccino.jfif' %}" alt="capuchine">
+                <img src="{% static 'img/Nutella Tiramisu.jfif' %}" alt="tiramisu">
 
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:20;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:13;"></span>
-
-            <div class="lead">
-                <img class="logo" src="{% static 'img/LOGO-removebg-preview.png' %}" alt="Logo Diverti-tuplas" />
-            </div>
-
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:20;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:13;"></span>
-
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:20;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:13;"></span>
-
-        </div>
-    </section>
-
-    <header class="site-header">
-        <div class="wrap header-inner">
-            <nav class="main-nav" aria-label="Menú principal">
-                <a id="nosotros-nav" href="#nosotros">Nosotros</a>
-                <a id="instalaciones-nav" href="#instalaciones">Instalaciones</a>
-                <a id="servicios-nav" href="#servicios">Servicios</a>
-                <a id="galeria-nav" href="#galeria">Galería</a>
-                <a id="testimonios-nav" href="#testimonios">Testimonios</a>
-                <a id="faq-nav" href="#faq">FAQ</a>
-                <a id="cotizacion-nav" href="#cotizacion">Cotización</a>
-                <a id="contacto-nav" href="#contacto">Contacto</a>
-                <a id="ubicacion-nav" href="#ubicacion">Ubicación</a>
-            </nav>
-            <div class="nav-buttons">
-                <button id="themeToggle" aria-pressed="false" title="Alternar tema">🌗</button>
-                <a href="{% url 'login' %}" class="btn" aria-label="Iniciar Sesión">☰</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- Nosotros -->
-        <section id="nosotros" class="section nosotros wrap">
-            <h2>Nosotros</h2>
-            <div class="nosotros-grid">
-                <div class="nosotros-text">
-                    <p>En Diverti-Tuplas, nos dedicamos a crear momentos mágicos e inolvidables para los más pequeños de la casa.
-                        Nuestro salón de eventos infantiles está diseñado para ofrecer un ambiente seguro, divertido y lleno de aventuras,
-                        donde cada niño puede ser el protagonista de su propia historia.</p>
-                    <p>Sin tuplas no hay diversión, !Diverti-Tuplas tu mejor opción!</p>
-                    <p><strong>Haz click en los textos para cambiar su tamaño.</strong></p>
-                    <p onclick="cambiarTamaño(this)"><strong>Misión:</strong> Crear experiencias seguras, divertidas y memorables para niñas y niños,
-                        fomentando la creatividad y la convivencia familiar.</p>
-                    <p onclick="cambiarTamaño(this)"><strong>Visión:</strong> Ser el salón de referencia en eventos infantiles en la región,
-                        reconocidos por la calidad de nuestras instalaciones y servicios.</p>
-                    <p onclick="cambiarTamaño(this)"><strong>Valores:</strong> Seguridad, diversión, inclusión y profesionalismo.</p>
-                </div>
-
-                <div class="nosotros-media">
-                    <!-- placeholder image, reemplazar por la imagen de las mascotas luego -->
-                    <img id="heroGif"
-                    src="{% static 'img/GIF_BG_OSCURO.gif' %}"
-                    data-dark="{% static 'img/GIF_BG_OSCURO.gif' %}"
-                    data-light="{% static 'img/GIF_BG_CLARO.gif' %}"
-                    alt="GIF de tuplin y tuplita"
-                    width="200" height="300">
-                    <div class="burbuja-dialogo">¡Hola, somos los Tuplines!</div>
-                </div>
-                
 
             </div>
-        </section>
+     </div>
+      <section id="nosotros">
+            <div class="nosotros">
+                <div class="nosotros-contenido">
+                        <div class="nosotros-text">
+                         <h1><i class="fa-solid fa-people-group"></i>&nbsp;Sobre Nosotros</h1>
+                         <p> En <strong>CAFÉ & CHILL</strong> creemos que el café es más que una bebida: es una experiencia.
+                             Somos una cafetería local dedicada a ofrecer productos artesanales, preparados con ingredientes
+                             de calidad y mucho cuidado en cada detalle.<br><br>
 
-        <!-- Instalaciones / Galería destacada -->
-        <section id="instalaciones" class="section instalaciones wrap">
-        <h2>Instalaciones</h2>
-            <div class="insta-gallery">
-                <img src="{% static 'img/Salon1.jpg' %}" alt="Instalación 1" />
-                <img src="{% static 'img/Salon2.jpg' %}" alt="Instalación 2" />
-                <img src="{% static 'img/salon3.jpg' %}" alt="Instalación 3" />
-                <img src="{% static 'img/salon4.jpg' %}" alt="Instalación 4" />
-            </div>
-        </section>
-
-        <!-- Servicios (dinámico) -->
-        <section id="servicios" class="section servicios wrap">
-        <h2>Servicios</h2>
-        <div id="servicios-list"></div>
-                <table Border="1" cellpadding="5" cellspacing="0" >
-                    <caption><h1>Catálogo de Shows</h1></caption>
-                    <thead>
-                        <tr>
-                            <th>Nombre del Show</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>Características</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for show in shows %}
-                        <tr>
-                            <td>{{ show.nombre_show }}</td>
-                            <td>{{ show.descripcion }}</td>
-                            <td>${{ show.precio }}</td>
-                            <td>{{ show.caracteristicas }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-        </section>
-
-        <!-- Galería -->
-        <section id="galeria" class="section galeria wrap">
-            <h2>Galería</h2>
-            <div class="carrusel-scroll">
-                <div class="carrusel-contenido">
-                    <img src="{% static 'img/evento1.jpg' %}" alt="Evento 1" />
-                    <img src="{% static 'img/evento2.jpg' %}" alt="Evento 2" />
-                    <img src="{% static 'img/evento3.jpg' %}" alt="Evento 3" />
-                    <img src="{% static 'img/evento4.jpg' %}" alt="Evento 4" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonios -->
-        <section id="testimonios" class="section testimonios wrap">
-            <h2>Testimonios</h2>
-            <div class="testimonials-grid">
-                <article class="testimonial">
-                    <img src="{% static 'img/ken.jpg' %}" alt="Ken" />
-                    <div>
-                        <strong>Ken A.</strong>
-                        <div class="stars">★★★★★</div>
-                        <p>Me encanta ver cómo cada fiesta se convierte en un recuerdo inolvidable. ¡Súper Recomendado!</p>
+                             Nuestro espacio está pensado para que te sientas como en casa, ya sea para relajarte,
+                             estudiar, trabajar o disfrutar de una buena conversación. Cada taza que servimos
+                             refleja nuestra pasión por el café y nuestro compromiso con una atención cercana
+                             y personalizada.
+                          </p>
+                     </div>
+                     <div class="nosotros-carrusel">
+                          <div class="carrusel-track">
+                                <img src="{% static 'img/Captura de pantalla (549).png' %}" alt="Interior del café">
+                                <img src="{% static 'img/Captura de pantalla (547).png' %}" alt="Área de trabajo">
+                                <img src="{% static 'img/area de vitrinasss.jfif' %}" alt="vitrinas de postres">
+                                <img src="{% static 'img/Captura de pantalla (548).png' %}" alt="exterior del café">
+                                <img src="{% static 'img/Captura de pantalla (550).png' %}" alt="trabajadores">
+                                <img src="{% static 'img/Captura de pantalla (549).png' %}" alt="Interior del café">
+                                <img src="{% static 'img/Captura de pantalla (547).png' %}" alt="Área de trabajo">
+                                <img src="{% static 'img/area de vitrinasss.jfif' %}" alt="vitrinas de postres">
+                                <img src="{% static 'img/Captura de pantalla (548).png' %}" alt="exterior del café">
+                                <img src="{% static 'img/Captura de pantalla (550).png' %}" alt="trabajadores">
+                                <img src="{% static 'img/Captura de pantalla (549).png' %}" alt="Interior del café">
+                                <img src="{% static 'img/Captura de pantalla (547).png' %}" alt="Área de trabajo">
+                                <img src="{% static 'img/area de vitrinasss.jfif' %}" alt="vitrinas de postres">
+                                <img src="{% static 'img/Captura de pantalla (548).png' %}" alt="exterior del café">
+                                <img src="{% static 'img/Captura de pantalla (550).png' %}" alt="trabajadores">
+                          </div>
+                      </div>
+              </div>
+         </div>
+      </section>
+        <!-- Secciones del menú -->
+        <section id="menu">
+              <br><h1><i class="fa-solid fa-utensils"></i>&nbsp;<span class="menu-title">Menú</span></h1>
+              <br><h2>Bebidas Calientes</h2>
+            <div class="cards-container">
+                <!-- Tarjeta 1 -->
+                <div class="card">
+                    <img src="{% static 'img/Idea de menú  MENÚ  1_ Café Clásico _•_Espresso….jfif' %}" alt="Latte Clásico">
+                    <h3>Latte Clásico</h3>
+                    <p>Café espresso con leche vaporizada, cremoso y suave</p>
+                    <p class="price">$70</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
                     </div>
-                </article>
+                </div>
 
-                <article class="testimonial">
-                    <img src="{% static 'img/sergio.jpeg' %}" alt="Sergio" />
-                    <div>
-                        <strong>Sergio A.</strong>
-                        <div class="stars">★★★★☆</div>
-                        <p>Los niños fueron pura energía. ¡Nos divertimos tanto!</p>
+                <!-- Tarjeta 2 -->
+                <div class="card">
+                    <img src="{% static 'img/Dry Cappuccino.jfif' %}" alt="Capuchino Vainilla">
+                    <h3>Capuchino Vainilla</h3>
+                    <p>Con un toque dulce de vainilla y espuma cremosa</p>
+                    <p class="price">$80</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
                     </div>
-                </article>
+                </div>
 
-                <article class="testimonial">
-                    <img src="{% static 'img/carlos.jpeg' %}" alt="Carlos" />
-                    <div>
-                        <strong>Carlos A.</strong>
-                        <div class="stars">★★★★★</div>
-                        <p>Cada rincón está pensado para que se sientan seguros, libres y felices.</p>
+                <!-- Tarjeta 3 -->
+                <div class="card">
+                    <img src="{% static 'img/Mexican Hot Chocolate_ Cozy, Spicy Winter Drink.jfif' %}" alt="Café de Olla">
+                    <h3>Café de Olla</h3>
+                    <p>Tradicional con canela y piloncillo</p>
+                    <p class="price">$70</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
                     </div>
-                </article>
-
-                <article class="testimonial">
-                    <img src="{% static 'img/sofia.jpeg' %}" alt="Sofía" />
-                    <div>
-                        <strong>Sofía C.</strong>
-                        <div class="stars">★★★★☆</div>
-                        <p>¡La música y los efectos hacen que todo cobre vida!</p>
+                </div>
+              <div class="card">
+                    <img src="{% static 'img/cortadito.jfif' %}" alt="Cortadito Cubano">
+                    <h3>Cortadito Cubano</h3>
+                    <p>Café importado de cuba  mezclado  con un poco de leche, más leche que un macchiato</p>
+                    <p class="price">$70</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
                     </div>
-                </article>
-
-                <article class="testimonial">
-                    <img src="{% static 'img/brissa.jpeg' %}" alt="Brissa" />
-                    <div>
-                        <strong>Brissa F.</strong>
-                        <div class="stars">★★★★★</div>
-                        <p>Ver a los peques disfrutar su comida me llena el corazón. ¡Todo hecho con amor!</p>
-                    </div>
-                </article>
-
-                <article class="testimonial">
-                    <img src="{% static 'img/deva.jpeg' %}" alt="Deva" />
-                    <div>
-                        <strong>Deva G.</strong>
-                        <div class="stars">★★★★★</div>
-                        <p>Esta diseñado para cada experiencia como si fuera nuestra propia familia.</p>
-                    </div>
-                </article>
+              </div>
             </div>
-        </section>
 
-        <!-- FAQ -->
-        <section id="faq" class="section faq wrap">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-list">
-                <details>
-                    <summary>¿Cuál es la capacidad máxima por evento?</summary>
-                    <p>Nuestra sala principal tiene capacidad para 60 niños y 80 adultos en espacios adicionales.</p>
-                </details>
-                <details>
-                    <summary>¿Ofrecen servicio de catering?</summary>
-                    <p>Sí, ofrecemos paquetes de alimentos para niños y adultos (opciones vegetarianas disponibles).</p>
-                </details>
-                <details>
-                    <summary>¿Puedo decorar según un tema específico?</summary>
-                    <p>Claro, contamos con paquetes temáticos y puedes personalizar decoraciones y actividades.</p>
-                </details>
-            </div>
-        </section>
-
-        <!-- Cotización -->
-        <section id="cotizacion" class="section cotizacion wrap">
-            <h2>Cotización</h2>
-            <form id="cotizador" class="cotizador-form" onsubmit="return false;">
-                <label for="servicioSelect">Servicio</label>
-                <select id="servicioSelect" required>
-                    <option value="">-- Seleccione un servicio --</option>
-                </select>
-
-                <label for="cantidadInput">Duración (horas)</label>
-                <input id="cantidadInput" name="txtDuracion" type="number"/>
-
-                <fieldset class="discount">
-                    <legend>Descuento</legend>
-                    <label><input type="radio" name="discount" value="0" checked /> 0%</label>
-                    <label><input type="radio" name="discount" value="5" /> 5%</label>
-                    <label><input type="radio" name="discount" value="10" /> 10%</label>
-                    <label><input type="radio" name="discount" value="15" /> 15%</label>
-                </fieldset>
-
-                <div class="actions">
-                    <button id="calcularBtn" type="button">Calcular cotización</button>
+            <br><h2>Bebidas Frías</h2>
+            <div class="cards-container">
+                <!-- Tarjeta 4 -->
+                <div class="card">
+                    <img src="{% static 'img/mocha.jfif' %}" alt="Frappe Mocha">
+                    <h3>Frappe Mocha</h3>
+                    <p>Ideal para los días calurosos, mezcla de café y chocolate</p>
+                    <p class="price">$78</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
                 </div>
-            </form>
-        </section>
-
-        <!-- Contacto -->
-        <section id="contacto" class="section contacto wrap">
-            <h2>Formulario de Contacto</h2>
-            <p>¿Tienes alguna duda? ¡Contáctanos, te atenderemos lo más rápido posible!</p>
-            <form id="contactForm" class="contact-form" novalidate>
-                <label for="name">Nombre</label>
-                <input id="name" name="name" type="text" pattern="[A-Za-z]+" required minlength="2"/>
-
-                <label for="email">Correo</label>
-                <input id="email" name="email" type="email" required />
-
-                <label for="telefono">Teléfono</label>
-                <input id="telefono" name="telefono" type="tel" pattern="^\d{10}$" />
-
-                <label for="message">Mensaje</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Enviar mensaje</button>
-            </form>
-        </section>
-
-        <!-- Ubicación -->
-        <section id="ubicacion" class="section ubicacion wrap">
-            <h2>Ubicación</h2>
-            <p>Nuestra dirección: ACEROS TUPLASA, S.A. DE C.V., Irapuato, Guanajuato. Haz zoom o muévete en el mapa.</p>
-            <!-- Google Maps embed: reemplaza coords/URL por la tuya -->
-            <div class="map-wrapper" aria-hidden="false">
-                <iframe title="Mapa Diverti-tuplas"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.8812933438026!2d-101.33533469999999!3d20.6744079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c81dbf1489ed7%3A0x938cdaad55952dd!2sACEROS%20TUPLASA%2C%20S.A.%20DE%20C.V.!5e0!3m2!1ses-419!2smx!4v1762748809407!5m2!1ses-419!2smx" >
-                    allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-block">
-                <h4>Información</h4>
-                <div class="dato">
-                    <span>ACEROS TUPLASA, S.A. DE C.V., Irapuato, Guanajuato</span>
+                <div class="card">
+                    <img src="{% static 'img/iced strawberry matcha latte.jfif' %}" alt="Ice Matcha Fresa Latte">
+                    <h3>Ice Matcha Fresa Latte</h3>
+                    <p>Matcha con leche y fresas frescas y hielo</p>
+                    <p class="price">$70</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+             </div>
+                <!-- Tarjeta 5 -->
+                <div class="card">
+                    <img src="{% static 'img/Caramel Matcha Latte.jfif' %}" alt="Ice Matcha Latte">
+                    <h3>Ice Matcha Latte</h3>
+                    <p>Té matcha con leche y hielo, saludable y delicioso</p>
+                    <p class="price">$85</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
                 </div>
-                <div class="dato">
-                    <span>Horario: Lun-Dom 9:00am - 10:00pm</span>
-                </div>
-                <div class="dato">
-                    <span>Tel: (81) 1234-5678</span>
-                </div>
-                <div class="dato">
-                    <span>info@divertiTUPLAS.com</span>
+
+                <!-- Tarjeta 6 -->
+                <div class="card">
+                    <img src="{% static 'img/caramel macchiato.jfif' %}" alt="Ice Caramel Macchiato">
+                    <h3>Ice Caramel Macchiato</h3>
+                    <p>Espresso con leche fría, hielo y caramelo</p>
+                    <p class="price">$80</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-block">
-                <h4>Síguenos</h4>
-                <div class="redes-sociales">
-                    <a target="_blank" class="btn-red-social">Instagram</a>
-                    <a target="_blank" class="btn-red-social">Facebook</a>
-                    <a target="_blank" class="btn-red-social">TikTok</a>
+            <br><h2>Postres</h2>
+            <div class="cards-container">
+                <!-- Tarjeta 7 -->
+                <div class="card">
+                    <img src="{% static 'img/Pan de Plátano con Nueces.jfif' %}" alt="Pan de Plátano">
+                    <h3>Pan de Plátano</h3>
+                    <p>Perfecto para acompañar tu café</p>
+                    <p class="price">$60</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
                 </div>
+                <div class="card">
+                    <img src="{% static 'img/Nutella Tiramisu.jfif' %}" alt="tiramisu">
+                    <h3>Tiramisu</h3>
+                    <p>Pan recien horenado bañado con cafe cubano,cubierto con crema mascarpone,espolvoreado con cocoa </p>
+                    <p class="price">$85</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 8 -->
+                <div class="card">
+                    <img src="{% static 'img/cheesecake fresa.jfif' %}" alt="Cheesecake de Fresa">
+                    <h3>Cheesecake de Fresa</h3>
+                    <p>Clásico, cremoso y con topping de fresa</p>
+                    <p class="price">$80</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 9 -->
+                <div class="card">
+                    <img src="{% static 'img/brownies.jfif' %}" alt="Brownie de Chocolate">
+                    <h3>Brownie de Chocolate</h3>
+                    <p>Esponjoso por dentro y crujiente por fuera</p>
+                    <p class="price">$50</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <!-- Modal para ver detalles del producto -->
+        <div id="product-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <img id="modal-img" src="" alt="">
+                <h3 id="modal-title"></h3>
+                <p id="modal-desc"></p>
             </div>
         </div>
-        <p class="copyright">© <span id="currentYear"></span> Diverti-Tuplas</p>
-    </footer>
+        <!-- Carrito de compras -->
+        <div id="cart-toggle">🛒 <span id="cart-count">0</span></div>
+         <div id="cart">
+         <div id="cart-header">
+             <h3>Carrito</h3>
+             <button id="clear-order" title="Vaciar carrito">Vaciar</button>
+             <span id="cart-close">&times;</span>
+         </div>
+         <ul id="cart-items"></ul>
+          <p>Total: $<span id="cart-total">0</span></p>
+      </div>
+
+        <section id="promociones">
+            <h1><i class="fa-solid fa-tag"></i>&nbsp;Promociones</h1>
+            <div class="promociones-container">
+                <!-- Promoción 1 -->
+                <div class="promo-card">
+                    <img src="{% static 'img/+ cappuccino for two 🤎.jpg' %}" alt="Capuchinos 2x1">
+                    <h3>2x1 en Capuchinos</h3>
+                    <p>Todos los martes de 4pm a 6pm.</p>
+                    <p class="price">$70</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Promoción 2 -->
+                <div class="promo-card">
+                    <img src="{% static 'img/panque de platano y cafe.jpg' %}" alt="Combo Café + Panqué">
+                    <h3>Combo Café + Panqué</h3>
+                    <p>Solo $70. Disponible todo el día.</p>
+                    <p class="price">$70</p>
+                    <div class="card-buttons">
+                        <button class="view-btn">Ver</button>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section id="recomendacion">
+            <h2><i class="fa-solid fa-star"></i>&nbsp;Recomendación del Barista</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="{% static 'img/te.webp' %}" alt="Cold Brew con Naranja">
+                    <div class="texto-recomendacion">
+                        <h3>Cold Brew con Naranja</h3>
+                        <p>Refrescante, cítrico y con un sabor único. Perfecto para esos días en los que buscas algo diferente.</p>
+                    </div>
+                </div>
+            </div>
+               
+                <div class="cards-container">
+                    <div class="card">
+                     <img src="{% static 'img/⋆｡˚ ☁︎ ˚｡⋆｡˚☽˚｡⋆.jfif' %}" alt="Latte Lavanda Miel">
+                     <div class="texto-recomendacion">
+                         <h3>Latte Lavanda Miel</h3>
+                         <p>Suave, floral y sorprendente.
+                              Una combinación delicada de lavanda natural y miel que transforma el café en una experiencia relajante y elegante. Perfecto para una pausa consciente.
+                          </p>
+                      </div>
+                 </div>
+             </div>
+               <div class="cards-container">
+                    <div class="card">
+                       <img src="{% static 'img/Coconut Water Americano—The Coolest Coffee Refresh….jfif' %}" alt="Cold Brew coco">
+                       <div class="texto-recomendacion">
+                         <h3>Cold Brew Coco Tostado</h3>
+                         <p>Fresco, tropical y diferente.
+                              Cold brew suave infusionado con coco tostado que aporta notas exóticas y un final sedoso. Ideal para quienes aman el café frío con personalidad.
+                           </p>
+                     </div>
+                 </div>
+             </div>
+              <div class="cards-container">
+                 <div class="card">
+                     <img src="{% static 'img/Mexico City’s food scene is (finally) in style.jfif' %}" alt="Café del Día + Postre de la Casa">
+                     <div class="texto-recomendacion">
+                         <h3>Café del Día + Postre de la Casa</h3>
+                         <p>Nuestro café del día acompañado de un postre recién horneado. 
+                             La combinación ideal para una tarde tranquila o una buena charla
+                          </p>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <section id="contacto">
+            <h1><i class="fa-solid fa-envelope"></i>&nbsp;Contacto</h1>
+            <p>Av. Siempre Viva #123, Ciudad Café <br>
+                (123) 456-7890 <br>
+                contacto@cafechill.com <br>
+                Síguenos en redes: Facebook | Instagram | TikTok <br>
+                © 2025 CAFÉ & CHILL - Todos los derechos reservados</p>
+
+                <div class="map-container">
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.5180733422026!2d-100.19948242560659!3d25.75344617735704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662eb95fff7428f%3A0xbee1dcc17fb237d9!2sPlaza%20Nave%2001!5e0!3m2!1ses-419!2smx!4v1767836463505!5m2!1ses-419!2smx" 
+                     width="600";
+                     height="450";
+                     style="border:0;";
+                     allowfullscreen="";
+                     loading="lazy";
+                     referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                     
+               </div>
+               
+
+        </section>
+    </div>
+
+    <script>
+        // ==========================
+        // MODAL "VER PRODUCTO"
+        // ==========================
+        const modal = document.getElementById("product-modal");
+        const modalImg = document.getElementById("modal-img");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDesc = document.getElementById("modal-desc");
+        const closeBtn = document.querySelector("#product-modal .close-btn");
+
+        document.querySelectorAll(".view-btn").forEach(btn => {
+            btn.addEventListener("click", e => {
+                const card = e.target.closest(".card, .promo-card");
+                if (!card) return;
+                const img = card.querySelector("img");
+                const title = card.querySelector("h3");
+                const desc = card.querySelector("p");
+                if (img) modalImg.src = img.src;
+                if (title) modalTitle.textContent = title.textContent;
+                if (desc) modalDesc.textContent = desc.textContent;
+                if (modal) modal.style.display = "flex";
+            });
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                if (modal) modal.style.display = "none";
+            });
+        }
+
+        // ==========================
+        // CARRITO
+        // ==========================
+        const cartItems = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+        const cartCount = document.getElementById("cart-count");
+        const cartToggle = document.getElementById("cart-toggle");
+        const cartClose = document.getElementById("cart-close");
+        const cartEl = document.getElementById("cart");
+        let cart = [];
+
+        if (cartToggle && cartEl) cartToggle.addEventListener("click", () => cartEl.classList.toggle("open"));
+        if (cartClose && cartEl) cartClose.addEventListener("click", () => cartEl.classList.remove("open"));
+
+        document.querySelectorAll(".cart-btn").forEach(btn => {
+            btn.addEventListener("click", e => {
+                const card = e.target.closest(".card, .promo-card");
+                if (!card) return;
+                const nameEl = card.querySelector("h3");
+                const priceEl = card.querySelector(".price");
+                const name = nameEl ? nameEl.textContent : 'Producto';
+                let price = 0;
+                if (priceEl) {
+                    const m = priceEl.textContent.match(/\$(\d+)/);
+                    price = m ? parseInt(m[1], 10) : 0;
+                }
+
+                cart.push({name, price});
+                updateCart();
+                if (cartEl) cartEl.classList.add("open"); // se abre automáticamente al agregar
+            });
+        });
+
+        const clearOrderBtn = document.getElementById('clear-order');
+        if (clearOrderBtn) {
+            clearOrderBtn.addEventListener('click', () => {
+                cart = [];
+                updateCart();
+                if (cartEl) cartEl.classList.remove('open');
+            });
+        }
+
+        function updateCart() {
+            if (!cartItems || !cartTotal) return;
+            cartItems.innerHTML = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                const li = document.createElement("li");
+                const text = document.createElement('span');
+                text.textContent = `${item.name} - $${item.price} `;
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Eliminar';
+                removeBtn.className = 'remove-btn';
+                removeBtn.addEventListener('click', () => {
+                    cart.splice(index, 1);
+                    updateCart();
+                });
+                li.appendChild(text);
+                li.appendChild(removeBtn);
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+            cartTotal.textContent = total;
+            if (cartCount) cartCount.textContent = cart.length;
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Fin Contenido Principal -->
 </body>
 </html>
