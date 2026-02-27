@@ -33,7 +33,7 @@ body {
   box-shadow: -3px 0 10px rgba(0, 0, 0, 0.708);
 }
 
-#caja-link, #venta-link {
+#caja-link, #venta-link, #logout-link {
   display: block;
   color: #fff;
   text-decoration: none;
@@ -44,7 +44,7 @@ body {
   transition: background 0.3s ease;
 }
 
-#caja-link:hover, #venta-link:hover {
+#caja-link:hover, #venta-link:hover, #logout-link:hover {
   background: #786246;
 }
 
