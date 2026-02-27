@@ -42,7 +42,7 @@ def listar_reservaciones(request):
 @user_passes_test(is_empleado)
 def listar_empleado(request):
     productos = Producto.objects.all()
-    return render(request, 'listar.html', {'productos': productos})
+    return render(request, 'listar_empleado.html', {'productos': productos})
 
 
 class CustomLoginView(LoginView):
@@ -63,3 +63,7 @@ class CustomLoginView(LoginView):
 def listado_ventas(request):
     productos = Producto.objects.all()
     return render(request, 'listado_ventas.html', )
+
+
+def listar_empleado(request):
+    return render(request, 'listar_empleado.html')
