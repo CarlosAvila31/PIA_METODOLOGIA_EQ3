@@ -58,3 +58,8 @@ class CustomLoginView(LoginView):
         elif is_empleado(user):
             return redirect('listar_empleado')
         return response
+
+
+def listado_ventas(request):
+    productos = Producto.objects.all()
+    return render(request, 'listado_ventas.html', )
