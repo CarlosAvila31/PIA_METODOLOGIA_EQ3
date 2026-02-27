@@ -5,7 +5,7 @@ from .views import CustomLoginView
 
 
 urlpatterns = [
-    path('', views.inicio, name='inicio'), 
+    path('', CustomLoginView.as_view(), name='inicio'), 
     path('login/', CustomLoginView.as_view(), name='login'), 
     path('listar/', views.listar_reservaciones, name='listar'),
     path('listar_empleado/', views.listar_empleado, name='listar_empleado'),

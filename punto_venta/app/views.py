@@ -13,7 +13,7 @@ from django.db import models
 
 # Create your views here.
 def inicio(request):
-    return render(request, 'index.html')
+    return render(request, 'login.html')
 
 
 class RoleLoginForm(AuthenticationForm):
@@ -36,7 +36,7 @@ def is_empleado(user):
 @user_passes_test(is_admin)
 def listar_reservaciones(request):
     productos = Producto.objects.all()
-    return render(request, 'listar.html', {'productos': productos})
+    return render(request, 'index.html', {'productos': productos})
 
 @login_required
 @user_passes_test(is_empleado)
