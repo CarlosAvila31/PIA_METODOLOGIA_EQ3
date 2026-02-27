@@ -16,88 +16,17 @@
 </head>
 <body>
     <header class="site-header"> 
-     <div class="header-inner">
-         <div class="logo-card">
-             <span>CAFÉ </span>
-             <span>ALMENDRA</span>
-         </div>
-         <nav class="w-100">
-            <ul> <!-- Menú de navegación de la página -->
-             <li><a href="#menu"><i class="fa-solid fa-bars"></i>&nbsp;<span class="d-none d-sm-inline">Menú</span></a></li>
-             <li><a href="#promociones"><i class="fa-solid fa-tag"></i>&nbsp;<span class="d-none d-sm-inline">Promociones</span></a></li>
-             <li><a href="#nosotros"><i class="fa-solid fa-people-group"></i>&nbsp;<span class="d-none d-sm-inline">Nosotros</span></a></li>
-             <li><a href="#contacto"><i class="fa-solid fa-envelope"></i>&nbsp;<span class="d-none d-sm-inline">Contacto</span></a></li>
-             <li><a href="{% url 'login' %}" class="btn" aria-label="Iniciar Sesión"><i class="fa-solid fa-money-bill"></i>&nbsp;<span class="d-none d-sm-inline">Venta</span></a></li>
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="#" id="caja-link">Caja</a></li>
+                <li><a href="#" id="venta-link">Venta</a></li>
             </ul>
-         </nav>
-     </div>
- </header>
+        </aside>
+    </header>
+    
     <!-- Contenido Principal -->
-    <div class="content">
-        <div class="carrusel"> <!-- Fotos giratorias -->
-            <div class="img-productos">
-                <img src="{% static 'img/capuchino.jpg' %}" alt="Capuchino">
-                <img src="{% static 'img/croissant.jpeg' %}" alt="Croissant">
-                <img src="{% static 'img/brownies.jfif' %}" alt="brownies">
-                <img src="{% static 'img/cheesecake.webp' %}" alt="Cheesecake">
-                <img src="{% static 'img/caramel macchiato.jfif' %}" alt="caramel macchiato">
-                <img src="{% static 'img/panini.jpg' %}" alt="Panini">
-                <img src="{% static 'img/Caramel Matcha Latte.jfif' %}" alt="matcha latte">
-                <img src="{% static 'img/te.webp' %}" alt="Té">
-                <img src="{% static 'img/Nutella Tiramisu.jfif' %}" alt="tiramisu">
-                <img src="{% static 'img/Dry Cappuccino.jfif' %}" alt="capuchine">
-                <img src="{% static 'img/capuchino.jpg' %}" alt="Capuchino">
-                <img src="{% static 'img/brownies.jfif' %}" alt="brownies">
-                <img src="{% static 'img/croissant.jpeg' %}" alt="Croissant">
-                <img src="{% static 'img/caramel macchiato.jfif' %}" alt="caramel macchiato">
-                <img src="{% static 'img/cheesecake.webp' %}" alt="Cheesecake">
-                <img src="{% static 'img/Caramel Matcha Latte.jfif' %}" alt="matcha latte">
-                <img src="{% static 'img/panini.jpg' %}" alt="Panini">
-                <img src="{% static 'img/brownies.jfif' %}" alt="brownies">
-                <img src="{% static 'img/te.webp' %}" alt="Té">
-                <img src="{% static 'img/Dry Cappuccino.jfif' %}" alt="capuchine">
-                <img src="{% static 'img/Nutella Tiramisu.jfif' %}" alt="tiramisu">
-
-
-            </div>
-     </div>
-      <section id="nosotros">
-            <div class="nosotros">
-                <div class="nosotros-contenido">
-                        <div class="nosotros-text">
-                         <h1><i class="fa-solid fa-people-group"></i>&nbsp;Sobre Nosotros</h1>
-                         <p> En <strong>CAFÉ & CHILL</strong> creemos que el café es más que una bebida: es una experiencia.
-                             Somos una cafetería local dedicada a ofrecer productos artesanales, preparados con ingredientes
-                             de calidad y mucho cuidado en cada detalle.<br><br>
-
-                             Nuestro espacio está pensado para que te sientas como en casa, ya sea para relajarte,
-                             estudiar, trabajar o disfrutar de una buena conversación. Cada taza que servimos
-                             refleja nuestra pasión por el café y nuestro compromiso con una atención cercana
-                             y personalizada.
-                          </p>
-                     </div>
-                     <div class="nosotros-carrusel">
-                          <div class="carrusel-track">
-                                <img src="{% static 'img/Captura de pantalla (549).png' %}" alt="Interior del café">
-                                <img src="{% static 'img/Captura de pantalla (547).png' %}" alt="Área de trabajo">
-                                <img src="{% static 'img/area de vitrinasss.jfif' %}" alt="vitrinas de postres">
-                                <img src="{% static 'img/Captura de pantalla (548).png' %}" alt="exterior del café">
-                                <img src="{% static 'img/Captura de pantalla (550).png' %}" alt="trabajadores">
-                                <img src="{% static 'img/Captura de pantalla (549).png' %}" alt="Interior del café">
-                                <img src="{% static 'img/Captura de pantalla (547).png' %}" alt="Área de trabajo">
-                                <img src="{% static 'img/area de vitrinasss.jfif' %}" alt="vitrinas de postres">
-                                <img src="{% static 'img/Captura de pantalla (548).png' %}" alt="exterior del café">
-                                <img src="{% static 'img/Captura de pantalla (550).png' %}" alt="trabajadores">
-                                <img src="{% static 'img/Captura de pantalla (549).png' %}" alt="Interior del café">
-                                <img src="{% static 'img/Captura de pantalla (547).png' %}" alt="Área de trabajo">
-                                <img src="{% static 'img/area de vitrinasss.jfif' %}" alt="vitrinas de postres">
-                                <img src="{% static 'img/Captura de pantalla (548).png' %}" alt="exterior del café">
-                                <img src="{% static 'img/Captura de pantalla (550).png' %}" alt="trabajadores">
-                          </div>
-                      </div>
-              </div>
-         </div>
-      </section>
+    <div class="content">    
         <!-- Secciones del menú -->
         <section id="menu">
               <br><h1><i class="fa-solid fa-utensils"></i>&nbsp;<span class="menu-title">Menú</span></h1>
@@ -110,7 +39,6 @@
                     <p>Café espresso con leche vaporizada, cremoso y suave</p>
                     <p class="price">$70</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -122,7 +50,6 @@
                     <p>Con un toque dulce de vainilla y espuma cremosa</p>
                     <p class="price">$80</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -134,7 +61,6 @@
                     <p>Tradicional con canela y piloncillo</p>
                     <p class="price">$70</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -144,7 +70,6 @@
                     <p>Café importado de cuba  mezclado  con un poco de leche, más leche que un macchiato</p>
                     <p class="price">$70</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
               </div>
@@ -159,7 +84,6 @@
                     <p>Ideal para los días calurosos, mezcla de café y chocolate</p>
                     <p class="price">$78</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -169,7 +93,6 @@
                     <p>Matcha con leche y fresas frescas y hielo</p>
                     <p class="price">$70</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
              </div>
@@ -180,7 +103,6 @@
                     <p>Té matcha con leche y hielo, saludable y delicioso</p>
                     <p class="price">$85</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -192,7 +114,6 @@
                     <p>Espresso con leche fría, hielo y caramelo</p>
                     <p class="price">$80</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -207,7 +128,6 @@
                     <p>Perfecto para acompañar tu café</p>
                     <p class="price">$60</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -217,7 +137,6 @@
                     <p>Pan recien horenado bañado con cafe cubano,cubierto con crema mascarpone,espolvoreado con cocoa </p>
                     <p class="price">$85</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -229,7 +148,6 @@
                     <p>Clásico, cremoso y con topping de fresa</p>
                     <p class="price">$80</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -241,7 +159,6 @@
                     <p>Esponjoso por dentro y crujiente por fuera</p>
                     <p class="price">$50</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -278,7 +195,6 @@
                     <p>Todos los martes de 4pm a 6pm.</p>
                     <p class="price">$70</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
@@ -290,83 +206,10 @@
                     <p>Solo $70. Disponible todo el día.</p>
                     <p class="price">$70</p>
                     <div class="card-buttons">
-                        <button class="view-btn">Ver</button>
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
-        </section>
-
-        
-
-        <section id="recomendacion">
-            <h2><i class="fa-solid fa-star"></i>&nbsp;Recomendación del Barista</h2>
-            <div class="cards-container">
-                <div class="card">
-                    <img src="{% static 'img/te.webp' %}" alt="Cold Brew con Naranja">
-                    <div class="texto-recomendacion">
-                        <h3>Cold Brew con Naranja</h3>
-                        <p>Refrescante, cítrico y con un sabor único. Perfecto para esos días en los que buscas algo diferente.</p>
-                    </div>
-                </div>
-            </div>
-               
-                <div class="cards-container">
-                    <div class="card">
-                     <img src="{% static 'img/⋆｡˚ ☁︎ ˚｡⋆｡˚☽˚｡⋆.jfif' %}" alt="Latte Lavanda Miel">
-                     <div class="texto-recomendacion">
-                         <h3>Latte Lavanda Miel</h3>
-                         <p>Suave, floral y sorprendente.
-                              Una combinación delicada de lavanda natural y miel que transforma el café en una experiencia relajante y elegante. Perfecto para una pausa consciente.
-                          </p>
-                      </div>
-                 </div>
-             </div>
-               <div class="cards-container">
-                    <div class="card">
-                       <img src="{% static 'img/Coconut Water Americano—The Coolest Coffee Refresh….jfif' %}" alt="Cold Brew coco">
-                       <div class="texto-recomendacion">
-                         <h3>Cold Brew Coco Tostado</h3>
-                         <p>Fresco, tropical y diferente.
-                              Cold brew suave infusionado con coco tostado que aporta notas exóticas y un final sedoso. Ideal para quienes aman el café frío con personalidad.
-                           </p>
-                     </div>
-                 </div>
-             </div>
-              <div class="cards-container">
-                 <div class="card">
-                     <img src="{% static 'img/Mexico City’s food scene is (finally) in style.jfif' %}" alt="Café del Día + Postre de la Casa">
-                     <div class="texto-recomendacion">
-                         <h3>Café del Día + Postre de la Casa</h3>
-                         <p>Nuestro café del día acompañado de un postre recién horneado. 
-                             La combinación ideal para una tarde tranquila o una buena charla
-                          </p>
-                     </div>
-                 </div>
-             </div>
-        </section>
-
-        <section id="contacto">
-            <h1><i class="fa-solid fa-envelope"></i>&nbsp;Contacto</h1>
-            <p>Av. Siempre Viva #123, Ciudad Café <br>
-                (123) 456-7890 <br>
-                contacto@cafechill.com <br>
-                Síguenos en redes: Facebook | Instagram | TikTok <br>
-                © 2025 CAFÉ & CHILL - Todos los derechos reservados</p>
-
-                <div class="map-container">
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.5180733422026!2d-100.19948242560659!3d25.75344617735704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662eb95fff7428f%3A0xbee1dcc17fb237d9!2sPlaza%20Nave%2001!5e0!3m2!1ses-419!2smx!4v1767836463505!5m2!1ses-419!2smx" 
-                     width="600";
-                     height="450";
-                     style="border:0;";
-                     allowfullscreen="";
-                     loading="lazy";
-                     referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                     
-               </div>
-               
-
         </section>
     </div>
 
