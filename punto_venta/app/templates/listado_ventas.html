@@ -18,34 +18,28 @@
     <table class="tabla-productos">
         <thead>
             <tr>
-                <th>Nombre del Cliente</th>
-                <th>Fecha del Evento</th>
-                <th>Duración</th>
-                <th># Invitados</th>
-                <th>Tipo de Evento</th>
-                <th>Teléfono</th>
-                <th>Estatus</th>
-                <th>Acciones</th>
+                <th>Cliente</th>
+                <th>Fecha Venta</th>
+                <th>Total a Pagar</th>
+                <th>Metodo de Pago</th>
             </tr>
         </thead>
         <tbody>
-            {% for reservacion in reservaciones %}
+            {% for venta in ventas %}
             <tr>
-                <td>{{ reservacion.nombre_cliente }}</td>
-                <td>{{ reservacion.fecha_evento|date:"Y-m-d H:i" }}</td>
-                <td>{{ reservacion.duracion_horas }}</td>
-                <td>{{ reservacion.num_invitados }}</td>
-                <td>{{ reservacion.tipo_evento }}</td>
-                <td>{{ reservacion.telefono_contacto }}</td>
-                <td>{{ reservacion.estatus_actualizado }}</td>
+                <td>{{ venta.cliente.nombre }}</td>
+                <td>{{ venta.fecha_venta|date:"Y-m-d H:i" }}</td>
+                <td>${{ venta.total_pagar }}</td>
+                <td>{{ venta.metodo_pago }}</td>
+
                 <td>
-                    <a class="boton-editar" href="{% url 'editar' reservacion.id %}">Editar</a>
-                    <a class="boton-eliminar" href="{% url 'eliminar' reservacion.id %}" onclick="return confirmarEliminacion(event)">Eliminar</a>
+                    <a class="boton-editar" href="{% url 'editar' venta.id %}">Editar</a>
+                    <a class="boton-eliminar" href="{% url 'eliminar' venta.id %}" onclick="return confirmarEliminacion(event)">Eliminar</a>
                 </td>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="7" class="text-center text-muted">No hay reservaciones registradas.</td>
+                <td colspan="7" class="text-center text-muted">No hay ventas registradas.</td>
             </tr>
             {% endfor %}
         </tbody>
