@@ -18,8 +18,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=70)
     precio_compra = models.DecimalField(max_digits=10, decimal_places=2)
     precio_venta = models.DecimalField(max_digits=10, decimal_places=2)
-    precio_promocion = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    stock = models.IntegerField()
+
     
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT) #el PORTECT evita borrar una categoría si tiene productos aja baraja.
 
@@ -31,9 +30,9 @@ class Producto(models.Model):
 
 class Empleado(models.Model):
     nombre = models.CharField(max_length=45)
-    rol = models.CharField(max_length=45)
-    username = models.CharField(max_length=45, unique=True)
-    password = models.CharField(max_length=128)
+    primer_apellido = models.CharField(max_length=45)
+    segundo_apellido = models.CharField(max_length=45, null=True, blank=True)
+    rfc = models.CharField(max_length=13)
 
     def __str__(self):
         return self.nombre
@@ -44,6 +43,8 @@ class Empleado(models.Model):
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=45)
+    primer_apellido = models.CharField(max_length=45)
+    segundo_apellido = models.CharField(max_length=45, null=True, blank=True)
     telefono = models.CharField(max_length=15, null=True, blank=True)
     descripcion = models.CharField(max_length=45, null=True, blank=True)
 
@@ -54,10 +55,9 @@ class Cliente(models.Model):
 
 
 class Venta(models.Model):
-    fecha_hora = models.DateTimeField(auto_now_add=True)
-    total = models.DecimalField(max_digits=10, decimal_places=2) #TOTAL A PAGAR
+    fecha_hora = models.DateTimeField()
+    total = models.DecimalField(max_digits=10, decimal_places=2, default=0) #TOTAL A PAGAR
     metodo_pago = models.CharField(max_length=45) #Efectivo, Tarjeta, etc.
-    estado = models.CharField(max_length=45)  #Este tenia pensado que fuera como "Pendiente", "Pagada", "Cancelada", etc. para llevar un control de las ventas pero no se que opinen.
 
     empleado = models.ForeignKey(
         Empleado,
@@ -71,6 +71,8 @@ class Venta(models.Model):
         blank=True
     )
 
+
+
     def __str__(self):
         return f"Venta #{self.id}"
     
@@ -79,7 +81,7 @@ class Venta(models.Model):
 class DetalleVenta(models.Model):
     venta = models.ForeignKey(
         Venta,
-        on_delete=models.CASCADE,      #con CASCADE si borras la venta, se borran sus detalles.
+        on_delete=models.CASCADE,
         related_name="detalles"
     )
 
@@ -88,10 +90,24 @@ class DetalleVenta(models.Model):
         on_delete=models.PROTECT
     )
 
-    cantidad = models.PositiveSmallIntegerField()
+    cantidad = models.PositiveIntegerField()
+
     precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
+
     subtotal = models.DecimalField(max_digits=10, decimal_places=2)
 
+    def save(self, *args, **kwargs):
+        # Tomar automáticamente el precio del producto
+        if self.producto:
+            self.precio_unitario = self.producto.precio_venta
+
+        # Calcular subtotal
+        self.subtotal = self.cantidad * self.precio_unitario
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"Detalle de venta {self.venta.id}"
 
 
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Categoria, Producto, Empleado, Cliente, Venta, DetalleVenta, Caja, Proveedor, Compra, DetalleCompra, CuentaPorPagar
+from .models import Categoria, Producto, Empleado, Cliente, Venta, Caja, Proveedor, Compra, DetalleCompra, CuentaPorPagar, DetalleVenta
 from django.contrib.auth.views import LoginView
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
@@ -12,8 +12,8 @@ from django.db import models
 
 
 # Create your views here.
-def inicio(request):
-    return render(request, 'login.html')
+#def inicio(request):
+    #return render(request, 'login.html')
 
 
 class RoleLoginForm(AuthenticationForm):
@@ -34,7 +34,7 @@ def is_empleado(user):
 
 @login_required
 @user_passes_test(is_admin)
-def listar_reservaciones(request):
+def listar_productos(request):
     productos = Producto.objects.all()
     return render(request, 'index.html', {'productos': productos})
 
@@ -54,16 +54,29 @@ class CustomLoginView(LoginView):
         user = form.get_user()
         
         if user.is_superuser:
-            return redirect('listar')
+            return redirect('venta')
         elif is_empleado(user):
             return redirect('listar_empleado')
         return response
 
 
 def listado_ventas(request):
-    productos = Producto.objects.all()
-    return render(request, 'listado_ventas.html', )
+    ventas = Venta.objects.all()
+    detalles_ventas = DetalleVenta.objects.select_related('venta', 'producto').all()
+    return render(request, 'listado_ventas.html', {'ventas': ventas, 'detalles_ventas': detalles_ventas})
 
 
 def listar_empleado(request):
     return render(request, 'listar_empleado.html')
+
+
+def editar_venta(request, id):
+    venta = get_object_or_404(Venta, id=id)
+    venta.delete()
+    return redirect('listado_ventas')
+
+
+def eliminar_venta(request, id):
+    venta = get_object_or_404(Venta, id=id)
+    venta.delete()
+    return redirect('listado_ventas')

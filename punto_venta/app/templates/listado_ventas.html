@@ -18,24 +18,34 @@
     <table class="tabla-productos">
         <thead>
             <tr>
+                <th>ID</th>
+                <th>Fecha</th>
                 <th>Cliente</th>
-                <th>Fecha Venta</th>
-                <th>Total a Pagar</th>
-                <th>Metodo de Pago</th>
+                <th>Empleado</th>
+                <th>Productos</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
             {% for venta in ventas %}
             <tr>
+                <td>{{ venta.id }}</td>
+                <td>{{ venta.fecha_hora|date:"Y-m-d H:i" }}</td>
                 <td>{{ venta.cliente.nombre }}</td>
-                <td>{{ venta.fecha_venta|date:"Y-m-d H:i" }}</td>
-                <td>${{ venta.total_pagar }}</td>
-                <td>{{ venta.metodo_pago }}</td>
-
+                <td>{{ venta.empleado.nombre }}</td>
+                <td>
+                    <ul>
+                        {% for detalle in venta.detalleventa.all %}
+                        <li>{{ detalle.producto.nombre }} (x{{ detalle.cantidad }}) - ${{ detalle.subtotal }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>${{ venta.total }}</td>
                 <td>
                     <a class="boton-editar" href="{% url 'editar' venta.id %}">Editar</a>
                     <a class="boton-eliminar" href="{% url 'eliminar' venta.id %}" onclick="return confirmarEliminacion(event)">Eliminar</a>
                 </td>
+
             </tr>
             {% empty %}
             <tr>

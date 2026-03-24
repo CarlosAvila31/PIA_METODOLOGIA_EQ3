@@ -7,7 +7,9 @@ from .views import CustomLoginView
 urlpatterns = [
     path('', CustomLoginView.as_view(), name='inicio'), 
     path('login/', CustomLoginView.as_view(), name='login'), 
-    path('listar/', views.listar_reservaciones, name='listar'),
+    path('venta/', views.listar_productos, name='venta'),
     path('listar_empleado/', views.listar_empleado, name='listar_empleado'),
     path('listado_ventas/', views.listado_ventas, name='listado_ventas'),
+    path('editar/<int:id>/', views.editar_venta, name='editar'),
+    path('eliminar/<int:id>/', views.eliminar_venta, name='eliminar'),
 ]
