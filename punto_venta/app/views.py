@@ -62,8 +62,7 @@ class CustomLoginView(LoginView):
 
 def listado_ventas(request):
     ventas = Venta.objects.all()
-    detalles_ventas = DetalleVenta.objects.select_related('venta', 'producto').all()
-    return render(request, 'listado_ventas.html', {'ventas': ventas, 'detalles_ventas': detalles_ventas})
+    return render(request, 'listado_ventas.html', {'ventas': ventas})
 
 
 def listar_empleado(request):

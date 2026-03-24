@@ -24,6 +24,7 @@
                 <th>Empleado</th>
                 <th>Productos</th>
                 <th>Total</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +36,7 @@
                 <td>{{ venta.empleado.nombre }}</td>
                 <td>
                     <ul>
-                        {% for detalle in venta.detalleventa.all %}
+                        {% for detalle in venta.detalles.all %}
                         <li>{{ detalle.producto.nombre }} (x{{ detalle.cantidad }}) - ${{ detalle.subtotal }}</li>
                         {% endfor %}
                     </ul>
