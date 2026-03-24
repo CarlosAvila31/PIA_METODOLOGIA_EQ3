@@ -92,9 +92,9 @@ class DetalleVenta(models.Model):
 
     cantidad = models.PositiveIntegerField()
 
-    precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
+    precio_unitario = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
-    subtotal = models.DecimalField(max_digits=10, decimal_places=2)
+    subtotal = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def save(self, *args, **kwargs):
         # Tomar automáticamente el precio del producto
