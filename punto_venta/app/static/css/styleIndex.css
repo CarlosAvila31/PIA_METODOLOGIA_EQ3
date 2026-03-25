@@ -479,6 +479,12 @@ html {
   margin-top: 10px;
 }
 
+.cart-actions {
+  display: flex;
+  justify-content: space-between; /* uno a la izquierda y otro a la derecha */
+  margin-top: 10px;
+}
+
 #cart button {
   background: #b7966b;
   color: #fff;
@@ -508,4 +514,13 @@ html {
 
 .remove-btn i {
     pointer-events: none; 
+}
+
+
+.modal {
+  z-index: 1055 !important;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
 }

@@ -6,7 +6,7 @@ function confirmarEliminacion(event) {
     Swal.fire({
         title: '¿Estás seguro?',
         html: `
-        <p><strong>ALTOOOO</strong> relaja la tupla  ¿seguro que quieres eliminar la reservación?</p>
+        <p><strong>ALTOOOO</strong> relaja la tupla  ¿seguro que quieres eliminar la venta?</p>
         <img src="https://media1.tenor.com/m/kTohyd7QJNwAAAAC/stop-seong-gi-hun.gif" 
          width="200" height="150" style="border-radius:10px; margin-top:10px;">`,
         showCancelButton: true,
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         Swal.fire({
             title: "¡Operación realizada correctamente!",
             html: `
-                <p>La reservación fue procesada correctamente</p>
+                <p>La venta fue procesada correctamente</p>
                 <img src="https://media.tenor.com/Xt80NIhpKnIAAAAM/jh.gif"
                 width="200" height="150" style="border-radius:10px; margin-top:10px;">`,
             icon: "success",

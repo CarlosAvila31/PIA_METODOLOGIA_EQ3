@@ -19,7 +19,6 @@
         <aside class="sidebar">
             <h2><img  src="{% static 'img/taza-cafe.webp' %}" alt="Latte Clásico"></h2>
             <ul>
-                <li><a href="#" id="caja-link">Caja</a></li>
                 <li><a href="{% url 'listado_ventas' %}" id="venta-link">Registro Ventas</a></li>
                 <li><a href="{% url 'login' %}" id="logout-link">Log-Out</a></li>
             </ul>
@@ -183,8 +182,53 @@
             </div>
             <ul id="cart-items"></ul>
             <p>Total: $<span id="cart-total">0</span></p>
-            <button id="clear-order" title="Vaciar carrito">Vaciar</button>
+            <div class="cart-actions">
+                <button class="Boton-Confirmar-Venta"> Confirmar Venta</button>
+                <button id="clear-order" title="Vaciar carrito">Vaciar</button>                
+            </div> 
       </div>
+       <div class="modal fade" id="ventaModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- Método de pago -->
+                    <h6>Método de pago</h6>
+                    <label>
+                    <input type="radio" name="metodo_pago" value="Efectivo" checked>
+                    Efectivo
+                    </label><br>
+
+                    <label>
+                    <input type="radio" name="metodo_pago" value="Tarjeta">
+                    Tarjeta
+                    </label>
+
+                    <hr>
+
+                    <!-- Cliente -->
+                    <h6>Datos del cliente</h6>
+
+                    <input type="text" id="cliente_nombre" class="form-control mb-2" placeholder="Nombre">
+
+                    <input type="text" id="cliente_apellido" class="form-control" placeholder="Apellido">
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="confirmarVentaFinal" class="btn btn-success">Confirmar</button>
+                </div>
+
+                </div>
+            </div>
+            </div>
 
         <section id="promociones">
             <h1><i class="fa-solid fa-tag"></i>&nbsp;Promociones</h1>
@@ -254,6 +298,8 @@
     const cartClose = document.getElementById("cart-close");
     const cartEl = document.getElementById("cart");
     const clearOrderBtn = document.getElementById("clear-order");
+    const btnConfirmar = document.querySelector(".Boton-Confirmar-Venta");
+
 
     let cart = [];
 
@@ -272,6 +318,19 @@
             cartEl.classList.remove("open");
         });
     }
+
+
+    btnConfirmar.addEventListener("click", () => {
+
+    if (cart.length === 0) {
+        alert("El carrito está vacío");
+        return;
+    }
+
+    const modal = new bootstrap.Modal(document.getElementById('ventaModal'));
+    modal.show();
+    });
+
 
     // AGREGAR PRODUCTOS
     document.querySelectorAll(".cart-btn").forEach(btn => {
@@ -365,6 +424,19 @@
         cartTotal.textContent = total;
         cartCount.textContent = count;
     }
+
+    // CAPTURAR DATOS DE LA VENTA
+    document.getElementById("confirmarVentaFinal").addEventListener("click", () => {
+
+    const metodo = document.querySelector('input[name="metodo_pago"]:checked').value;
+    const nombre = document.getElementById("cliente_nombre").value;
+    const apellido = document.getElementById("cliente_apellido").value;
+
+    console.log("Carrito:", cart);
+    console.log("Método:", metodo);
+    console.log("Cliente:", nombre, apellido);
+
+    });
 </script>
 
     <!-- Bootstrap JS -->

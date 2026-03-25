@@ -43,7 +43,6 @@
                 </td>
                 <td>${{ venta.total }}</td>
                 <td>
-                    <a class="boton-editar" href="{% url 'editar' venta.id %}">Editar</a>
                     <a class="boton-eliminar" href="{% url 'eliminar' venta.id %}" onclick="return confirmarEliminacion(event)">Eliminar</a>
                 </td>
 
