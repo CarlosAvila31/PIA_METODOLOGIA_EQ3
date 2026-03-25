@@ -42,7 +42,7 @@ def listar_productos(request):
 @user_passes_test(is_empleado)
 def listar_empleado(request):
     productos = Producto.objects.all()
-    return render(request, 'listar_empleado.html', {'productos': productos})
+    return render(request, 'index.html', {'productos': productos})
 
 
 class CustomLoginView(LoginView):
@@ -65,14 +65,6 @@ def listado_ventas(request):
     return render(request, 'listado_ventas.html', {'ventas': ventas})
 
 
-def listar_empleado(request):
-    return render(request, 'listar_empleado.html')
-
-
-def editar_venta(request, id):
-    venta = get_object_or_404(Venta, id=id)
-    venta.delete()
-    return redirect('listado_ventas')
 
 
 def eliminar_venta(request, id):

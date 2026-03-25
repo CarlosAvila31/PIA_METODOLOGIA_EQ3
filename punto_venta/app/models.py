@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.core.management.base import BaseCommand
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 
 
 # Create your models here.
@@ -29,12 +29,16 @@ class Producto(models.Model):
 
 
 class Empleado(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    
     nombre = models.CharField(max_length=45)
     primer_apellido = models.CharField(max_length=45)
     segundo_apellido = models.CharField(max_length=45, null=True, blank=True)
     rfc = models.CharField(max_length=13)
 
     def __str__(self):
+        if self.user:
+            return f"{self.nombre} ({self.user.username})"
         return self.nombre
     
 
