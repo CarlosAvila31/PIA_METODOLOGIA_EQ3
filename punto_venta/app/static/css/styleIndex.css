@@ -454,7 +454,7 @@ html {
   overflow-y: auto;
 }
 #cart.open {
-  right: 0; /* se abre */
+  right: 100px; /* se abre */
 }
 #cart-header {
   display: flex;
@@ -477,4 +477,16 @@ html {
 #cart p {
   font-weight: bold;
   margin-top: 10px;
+}
+
+#cart button {
+  background: #b7966b;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: auto;
+  display: block;
 }
