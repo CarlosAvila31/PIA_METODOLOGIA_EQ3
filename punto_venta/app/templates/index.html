@@ -175,7 +175,7 @@
             </div>
         </div>
         <!-- Carrito de compras -->
-        <div id="cart-toggle">🛒 <span id="cart-count">0</span></div>
+        <div id="cart-toggle"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-count">0</span></div>
          <div id="cart">
          <div id="cart-header">
              <h3>Carrito</h3>
@@ -254,90 +254,108 @@
     const cartClose = document.getElementById("cart-close");
     const cartEl = document.getElementById("cart");
     const clearOrderBtn = document.getElementById("clear-order");
+
     let cart = [];
 
-    if (cartToggle && cartEl) cartToggle.addEventListener("click", () => cartEl.classList.toggle("open"));
-    if (cartClose && cartEl) cartClose.addEventListener("click", () => cartEl.classList.remove("open"));
-    if (clearOrderBtn) clearOrderBtn.addEventListener("click", () => {
-        cart = [];
-        updateCart();
-        if (cartEl) cartEl.classList.remove("open");
-    });
+    if (cartToggle && cartEl) {
+        cartToggle.addEventListener("click", () => cartEl.classList.toggle("open"));
+    }
 
+    if (cartClose && cartEl) {
+        cartClose.addEventListener("click", () => cartEl.classList.remove("open"));
+    }
+
+    if (clearOrderBtn) {
+        clearOrderBtn.addEventListener("click", () => {
+            cart = [];
+            updateCart();
+            cartEl.classList.remove("open");
+        });
+    }
+
+    // AGREGAR PRODUCTOS
     document.querySelectorAll(".cart-btn").forEach(btn => {
         btn.addEventListener("click", e => {
             const card = e.target.closest(".card, .promo-card");
             if (!card) return;
 
-            const nameEl = card.querySelector("h3");
-            const priceEl = card.querySelector(".price");
-            const name = nameEl ? nameEl.textContent : 'Producto';
-            let price = 0;
-            if (priceEl) {
-                const m = priceEl.textContent.match(/\$(\d+)/);
-                price = m ? parseInt(m[1], 10) : 0;
-            }
+            const name = card.querySelector("h3").textContent;
+            const priceText = card.querySelector(".price").textContent;
+            const price = parseInt(priceText.replace("$", ""));
 
-            // Buscar si ya existe en el carrito
             const item = cart.find(p => p.name === name);
 
             if (item) {
-                item.cantidad += 1; // si existe, aumentar cantidad
+                item.cantidad += 1;
             } else {
-                cart.push({ name, price, cantidad: 1 }); // si no existe, agregar con cantidad inicial
+                cart.push({ name, price, cantidad: 1 });
             }
 
             updateCart();
-            if (cartEl) cartEl.classList.add("open"); // se abre automáticamente al agregar
+            cartEl.classList.add("open");
         });
     });
 
+    // ACTUALIZAR CARRITO
     function updateCart() {
-        if (!cartItems || !cartTotal) return;
         cartItems.innerHTML = "";
+
         let total = 0;
         let count = 0;
 
         cart.forEach((item, index) => {
             const li = document.createElement("li");
 
-            // Nombre y precio unitario
-            const text = document.createElement('span');
-            text.textContent = `${item.name} - $${item.price}`;
-            li.appendChild(text);
-            
-            li.style.marginBottom = "12px";   // espacio entre productos
-            li.style.paddingBottom = "30px";         // espacio interno
+            li.style.marginBottom = "12px";
+            li.style.padding = "10px";
             li.style.borderRadius = "5px";
             li.style.backgroundColor = "#f9f9f9";
-            // Textbox para cantidad
+
+            // TEXTO
+            const text = document.createElement("span");
+            text.textContent = `${item.name} - $${item.price}`;
+
+            // INPUT CANTIDAD
             const qtyInput = document.createElement("input");
             qtyInput.type = "number";
             qtyInput.min = 1;
             qtyInput.value = item.cantidad;
             qtyInput.style.width = "50px";
-            qtyInput.style.margin = "0 10px";
-            qtyInput.style.border = "1px solid #ccc";
+
             qtyInput.addEventListener("change", () => {
-                const nuevaCantidad = parseInt(qtyInput.value, 10);
-                if (!isNaN(nuevaCantidad) && nuevaCantidad > 0) {
+                const nuevaCantidad = parseInt(qtyInput.value);
+                if (nuevaCantidad > 0) {
                     item.cantidad = nuevaCantidad;
                     updateCart();
                 }
             });
-            li.appendChild(qtyInput);
 
-            // Botón eliminar
-            const removeBtn = document.createElement('button');
-            removeBtn.innerHTML = '<span>🗑️</span>';
-            removeBtn.style.backgroundColor = "white";
-            removeBtn.className = 'remove-btn';
-            removeBtn.addEventListener('click', () => {
+            // BOTÓN ELIMINAR
+            const removeBtn = document.createElement("button");
+            removeBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+            removeBtn.style.background = "white";
+            removeBtn.style.border = "none";
+            removeBtn.style.cursor = "pointer";
+            removeBtn.style.color = "black";
+            removeBtn.style.fontSize = "16px";
+
+            removeBtn.addEventListener("click", () => {
                 cart.splice(index, 1);
                 updateCart();
             });
-            li.appendChild(removeBtn);
 
+            // CONTENEDOR FLEX
+            const container = document.createElement("div");
+            container.style.display = "flex";
+            container.style.alignItems = "center";
+            container.style.justifyContent = "space-between";
+            container.style.gap = "10px";
+
+            container.appendChild(text);
+            container.appendChild(qtyInput);
+            container.appendChild(removeBtn);
+
+            li.appendChild(container);
             cartItems.appendChild(li);
 
             total += item.price * item.cantidad;

@@ -490,3 +490,22 @@ html {
   margin-left: auto;
   display: block;
 }
+
+.remove-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: #0a0707;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.remove-btn:hover {
+    background: #ddd;
+}
+
+.remove-btn i {
+    pointer-events: none; 
+}
