@@ -22,9 +22,11 @@
                 <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Empleado</th>
+                <th>Tipo de pago</th>
                 <th>Productos</th>
                 <th>Total</th>
                 <th>Acciones</th>
+
             </tr>
         </thead>
         <tbody>
@@ -34,6 +36,7 @@
                 <td>{{ venta.fecha_hora|date:"Y-m-d H:i" }}</td>
                 <td>{{ venta.cliente.nombre }}</td>
                 <td>{{ venta.empleado.nombre }}</td>
+                <td>{{ venta.metodo_pago }}</td>
                 <td>
                     <ul>
                         {% for detalle in venta.detalles.all %}

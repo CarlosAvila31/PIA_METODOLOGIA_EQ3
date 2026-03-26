@@ -1,12 +1,12 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #eee1aa;
 }
 
 /* Barra de navegación */
 .navbar {
-  background-color: #b2dfdb;
+  background-color: #97885d;
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border-radius: 20px;
@@ -35,11 +35,11 @@ body {
 }
 
 .nav-link:hover {
-  background-color: #00796b;
+  background-color: #ac9a74;
 }
 
 .nav-var {
-  color: #00796b;
+  color: #806828;
   text-decoration: none;
   font-weight: 500;
   padding: 8px 12px;
@@ -81,7 +81,7 @@ body {
 }
 .navbar-nav li:hover .submenuG{
   display: block; /*Mostrar el submenu al pasar el mouse por encima del elemento padre*/
-  background-color: #b2dfdb;
+  background-color: #978752;
   padding: 10px;
   border-radius: 5px;
   top: 100%; /*Posicionar el submenu debajo del elemento padre*/
@@ -89,7 +89,7 @@ body {
 } 
 
 .subM:hover {
-  background-color: #00796b;
+  background-color: #817256;
   font-weight: 500;
   padding: 8px 12px;
   border-radius: 5px;

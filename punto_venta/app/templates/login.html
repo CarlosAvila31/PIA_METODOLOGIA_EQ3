@@ -7,24 +7,34 @@
     <link rel="stylesheet" href="{% static 'css/styleLogin.css' %}">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.non_field_errors }}
+    <div class="main-container">
+        <!-- Imagen decorativa -->
+        <div class="side-image">
+            <img src="{% static 'img/caramel macchiato.jfif' %}" alt="Decoración Café">
+        </div>
 
-            <label for="{{ form.username.id_for_label }}">Usuario:</label>
-            {{ form.username }}
+        <!-- Login -->
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            <h4>Bienvenido al Sistema de Punto de Venta</h4>
+            
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
 
-            <label for="{{ form.password.id_for_label }}">Contraseña:</label>
-            {{ form.password }}
+                <label for="{{ form.username.id_for_label }}">Usuario:</label>
+                {{ form.username }}
 
-            <!--<label for="{{ form.role.id_for_label }}">Tipo de Usuario:</label>-->
-            <div style="display: none;">    
-            {{ form.role }}
-            </div>
-            <button type="submit">Entrar</button>
-        </form>
+                <label for="{{ form.password.id_for_label }}">Contraseña:</label>
+                {{ form.password }}
+
+                <div style="display: none;">    
+                    {{ form.role }}
+                </div>
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
