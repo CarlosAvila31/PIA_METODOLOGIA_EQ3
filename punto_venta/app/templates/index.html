@@ -33,7 +33,7 @@
               <br><h2>Bebidas Calientes</h2>
             <div class="cards-container">
                 <!-- Tarjeta 1 -->
-                <div class="card">
+                <div class="card" data-id="1">
                     <img src="{% static 'img/Idea de menú  MENÚ  1_ Café Clásico _•_Espresso….jfif' %}" alt="Latte Clásico">
                     <h3>Latte Clásico</h3>
                     <p>Café espresso con leche vaporizada, cremoso y suave</p>
@@ -44,7 +44,7 @@
                 </div>
 
                 <!-- Tarjeta 2 -->
-                <div class="card">
+                <div class="card" data-id="2">
                     <img src="{% static 'img/Dry Cappuccino.jfif' %}" alt="Capuchino Vainilla">
                     <h3>Capuchino Vainilla</h3>
                     <p>Con un toque dulce de vainilla y espuma cremosa</p>
@@ -55,7 +55,7 @@
                 </div>
 
                 <!-- Tarjeta 3 -->
-                <div class="card">
+                <div class="card" data-id="3">
                     <img src="{% static 'img/Mexican Hot Chocolate_ Cozy, Spicy Winter Drink.jfif' %}" alt="Café de Olla">
                     <h3>Café de Olla</h3>
                     <p>Tradicional con canela y piloncillo</p>
@@ -64,7 +64,7 @@
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
-              <div class="card">
+              <div class="card" data-id="4">
                     <img src="{% static 'img/cortadito.jfif' %}" alt="Cortadito Cubano">
                     <h3>Cortadito Cubano</h3>
                     <p>Café importado de cuba  mezclado  con un poco de leche, más leche que un macchiato</p>
@@ -78,7 +78,7 @@
             <br><h2>Bebidas Frías</h2>
             <div class="cards-container">
                 <!-- Tarjeta 4 -->
-                <div class="card">
+                <div class="card" data-id="5">
                     <img src="{% static 'img/mocha.jfif' %}" alt="Frappe Mocha">
                     <h3>Frappe Mocha</h3>
                     <p>Ideal para los días calurosos, mezcla de café y chocolate</p>
@@ -87,7 +87,7 @@
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" data-id="6">
                     <img src="{% static 'img/iced strawberry matcha latte.jfif' %}" alt="Ice Matcha Fresa Latte">
                     <h3>Ice Matcha Fresa Latte</h3>
                     <p>Matcha con leche y fresas frescas y hielo</p>
@@ -97,7 +97,7 @@
                     </div>
              </div>
                 <!-- Tarjeta 5 -->
-                <div class="card">
+                <div class="card" data-id="7">
                     <img src="{% static 'img/Caramel Matcha Latte.jfif' %}" alt="Ice Matcha Latte">
                     <h3>Ice Matcha Latte</h3>
                     <p>Té matcha con leche y hielo, saludable y delicioso</p>
@@ -108,7 +108,7 @@
                 </div>
 
                 <!-- Tarjeta 6 -->
-                <div class="card">
+                <div class="card" data-id="8">
                     <img src="{% static 'img/caramel macchiato.jfif' %}" alt="Ice Caramel Macchiato">
                     <h3>Ice Caramel Macchiato</h3>
                     <p>Espresso con leche fría, hielo y caramelo</p>
@@ -122,7 +122,7 @@
             <br><h2>Postres</h2>
             <div class="cards-container">
                 <!-- Tarjeta 7 -->
-                <div class="card">
+                <div class="card" data-id="9">
                     <img src="{% static 'img/Pan de Plátano con Nueces.jfif' %}" alt="Pan de Plátano">
                     <h3>Pan de Plátano</h3>
                     <p>Perfecto para acompañar tu café</p>
@@ -131,7 +131,7 @@
                         <button class="cart-btn">Agregar al carrito</button>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" data-id="10">
                     <img src="{% static 'img/Nutella Tiramisu.jfif' %}" alt="tiramisu">
                     <h3>Tiramisu</h3>
                     <p>Pan recien horenado bañado con cafe cubano,cubierto con crema mascarpone,espolvoreado con cocoa </p>
@@ -142,7 +142,7 @@
                 </div>
 
                 <!-- Tarjeta 8 -->
-                <div class="card">
+                <div class="card" data-id="11">
                     <img src="{% static 'img/cheesecake fresa.jfif' %}" alt="Cheesecake de Fresa">
                     <h3>Cheesecake de Fresa</h3>
                     <p>Clásico, cremoso y con topping de fresa</p>
@@ -153,7 +153,7 @@
                 </div>
 
                 <!-- Tarjeta 9 -->
-                <div class="card">
+                <div class="card" data-id="12">
                     <img src="{% static 'img/brownies.jfif' %}" alt="Brownie de Chocolate">
                     <h3>Brownie de Chocolate</h3>
                     <p>Esponjoso por dentro y crujiente por fuera</p>
@@ -222,7 +222,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                     <button id="confirmarVentaFinal" class="btn btn-success">Confirmar</button>
                 </div>
 
@@ -234,7 +234,7 @@
             <h1><i class="fa-solid fa-tag"></i>&nbsp;Promociones</h1>
             <div class="promociones-container">
                 <!-- Promoción 1 -->
-                <div class="promo-card">
+                <div class="promo-card" data-id="13">
                     <img src="{% static 'img/+ cappuccino for two 🤎.jpg' %}" alt="Capuchinos 2x1">
                     <h3>2x1 en Capuchinos</h3>
                     <p>Todos los martes de 4pm a 6pm.</p>
@@ -245,7 +245,7 @@
                 </div>
 
                 <!-- Promoción 2 -->
-                <div class="promo-card">
+                <div class="promo-card" data-id="14">
                     <img src="{% static 'img/panque de platano y cafe.jpg' %}" alt="Combo Café + Panqué">
                     <h3>Combo Café + Panqué</h3>
                     <p>Solo $70. Disponible todo el día.</p>
@@ -338,19 +338,27 @@
             const card = e.target.closest(".card, .promo-card");
             if (!card) return;
 
+            const id = card.getAttribute("data-id");
             const name = card.querySelector("h3").textContent;
             const priceText = card.querySelector(".price").textContent;
             const price = parseInt(priceText.replace("$", ""));
 
-            const item = cart.find(p => p.name === name);
+            const item = cart.find(p => p.id === id);
 
             if (item) {
                 item.cantidad += 1;
             } else {
-                cart.push({ name, price, cantidad: 1 });
+                cart.push({
+                id: id,
+                name: name,
+                price: price,
+                cantidad: 1
+                });
             }
 
             updateCart();
+
+            
             cartEl.classList.add("open");
         });
     });
@@ -425,6 +433,8 @@
         cartCount.textContent = count;
     }
 
+    
+
     // CAPTURAR DATOS DE LA VENTA
     document.getElementById("confirmarVentaFinal").addEventListener("click", () => {
 
@@ -432,11 +442,44 @@
     const nombre = document.getElementById("cliente_nombre").value;
     const apellido = document.getElementById("cliente_apellido").value;
 
-    console.log("Carrito:", cart);
-    console.log("Método:", metodo);
-    console.log("Cliente:", nombre, apellido);
+    fetch("/guardar-venta/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCookie("csrftoken")
+        },
+        body: JSON.stringify({
+            carrito: cart,
+            metodo_pago: metodo,
+            nombre: nombre,
+            apellido: apellido
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert("Venta guardada ✅");
+
+        cart = [];
+        updateCart();
+    });
 
     });
+
+    //Evitar que se realicen peticiones falsas
+    function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let c of cookies) {
+            c = c.trim();
+            if (c.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(c.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 </script>
 
     <!-- Bootstrap JS -->
