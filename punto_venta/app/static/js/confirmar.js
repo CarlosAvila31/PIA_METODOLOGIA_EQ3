@@ -6,7 +6,7 @@ function confirmarEliminacion(event) {
     Swal.fire({
         title: '¿Estás seguro?',
         html: `
-        <p><strong>ALTOOOO</strong> relaja la tupla  ¿seguro que quieres eliminar la venta?</p>
+        <p><strong>ALTOOOO</strong>  ¿seguro que quieres eliminar la venta?</p>
         <img src="https://media1.tenor.com/m/kTohyd7QJNwAAAAC/stop-seong-gi-hun.gif" 
          width="200" height="150" style="border-radius:10px; margin-top:10px;">`,
         showCancelButton: true,

@@ -1,7 +1,7 @@
 import json
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Categoria, Producto, Empleado, Cliente, Venta, Caja, Proveedor, Compra, DetalleCompra, CuentaPorPagar, DetalleVenta
+from .models import Categoria, Producto, Empleado, Cliente, Venta, DetalleVenta
 from django.contrib.auth.views import LoginView
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
@@ -33,16 +33,10 @@ def is_empleado(user):
     return user.groups.filter(name='Empleados').exists()
 
 @login_required
-@user_passes_test(is_admin)
 def listar_productos(request):
     productos = Producto.objects.all()
     return render(request, 'index.html', {'productos': productos})
 
-@login_required
-@user_passes_test(is_empleado)
-def listar_empleado(request):
-    productos = Producto.objects.all()
-    return render(request, 'index.html', {'productos': productos})
 
 
 class CustomLoginView(LoginView):
@@ -56,7 +50,7 @@ class CustomLoginView(LoginView):
         if user.is_superuser:
             return redirect('venta')
         elif is_empleado(user):
-            return redirect('listar_empleado')
+            return redirect('venta')
         return response
 
 
