@@ -304,12 +304,17 @@
     let cart = [];
 
     if (cartToggle && cartEl) {
-        cartToggle.addEventListener("click", () => cartEl.classList.toggle("open"));
+        cartToggle.addEventListener("click", () => {
+            cartEl.classList.toggle("open");
+            document.body.classList.toggle("cart-open");
+    });
     }
 
     if (cartClose && cartEl) {
-        cartClose.addEventListener("click", () => cartEl.classList.remove("open"));
-    }
+        cartClose.addEventListener("click", () => {
+            cartEl.classList.remove("open");
+            document.body.classList.remove("cart-open");
+    });}
 
     if (clearOrderBtn) {
         clearOrderBtn.addEventListener("click", () => {

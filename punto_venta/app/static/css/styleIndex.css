@@ -68,11 +68,13 @@ body {
 /* ============================= */
 
 .content { 
-    width: 90%;
-    max-width: 90%;
-    margin: 30px auto 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 30px 5px 30px; /* espacio para el sidebar */
     padding: 20px;
-    margin-left: 13%;
+    width: calc(100% - 210px); /* sidebar */
+    margin-left: 145px;
+    transition: all 0.4s ease;
 }
 
 /* ============================= */
@@ -303,7 +305,7 @@ section h2,
   background-color: #8c6a4a;
 }
 
-#promociones { 
+#promociones, #menu { 
  max-width: 1200px;     /* igual que header y carrusel */
  margin: 2rem auto;    /* centrado */
  padding: 2rem;
@@ -367,15 +369,6 @@ max-width:100%;
 
 /* SECCIONES */
 /* ============================= */
-
-#menu,
-#promociones{
-    background-color: var(--section-bg);
-    color: var(--text-main);
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-}
 
 p {
     color: var(--text-soft);
@@ -449,31 +442,42 @@ html {
   background-color: #fff8f0;
   box-shadow: -3px 0 10px rgba(0,0,0,0.2);
   padding: 20px;
-  transition: right 0.3s ease;
+  transition: right 0.4s ease;
   z-index: 1000;
   overflow-y: auto;
 }
 #cart.open {
-  right: 100px; /* se abre */
+  right: 0; /* se abre */
 }
+
+body.cart-open .content {
+    margin-left: 174px; /* sidebar */
+    margin-right: 310px; /* espacio para el carrito */
+    width: calc(100% - 100px); /* sidebar + carrito */
+}
+
 #cart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 #cart-close {
   cursor: pointer;
   font-size: 1.5rem;
 }
+
 #cart ul {
   list-style: none;
   padding: 0;
 }
+
 #cart ul li {
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 5px;
 }
+
 #cart p {
   font-weight: bold;
   margin-top: 10px;

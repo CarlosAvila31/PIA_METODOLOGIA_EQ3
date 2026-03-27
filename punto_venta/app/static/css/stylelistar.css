@@ -1,9 +1,13 @@
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #e4d9b6, #e9deb9);
+    background: linear-gradient(to right, #ffeada, #ffe1be);
     padding: 2rem;
     color: #0f0101;
     margin-left: 250px;
+}
+
+html {
+    background: white;
 }
 
 h1 {
@@ -43,7 +47,7 @@ h1 {
 }
 
 .tabla-productos th {
-    background-color: #86724c;
+    background-color: #725b40;
     color: #f9fffe;
     font-weight: bold;
 }
