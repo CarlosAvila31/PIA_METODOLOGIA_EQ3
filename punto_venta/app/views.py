@@ -10,6 +10,8 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import Group, User
 from django.db import models
+from django.db.models import Sum, Avg
+from django.db.models.functions import TruncDate
 
 
 
@@ -127,3 +129,64 @@ def guardar_venta(request):
         venta.save()
 
         return JsonResponse({"status": "ok"})
+
+
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+
+
+def resumen(request):
+    total = Venta.objects.aggregate(total=Sum('total'))['total'] or 0
+    promedio = Venta.objects.aggregate(promedio=Avg('total'))['promedio'] or 0
+
+    producto_top = (
+        DetalleVenta.objects
+        .values('producto__nombre')
+        .annotate(total_vendido=Sum('cantidad'))
+        .order_by('-total_vendido')
+        .first()
+    )
+
+    return JsonResponse({
+        "total": round(total, 2),
+        "promedio": round(promedio, 2),
+        "producto_top": producto_top['producto__nombre'] if producto_top else "-"
+    })
+
+
+
+
+def ventas_por_dia(request):
+    ventas = (
+        Venta.objects
+        .annotate(fecha_dia=TruncDate('fecha_hora'))
+        .values('fecha_dia')
+        .annotate(total=Sum('total'))
+        .order_by('fecha_dia')
+    )
+
+    data = {
+        "labels": [v["fecha_dia"].strftime("%Y-%m-%d") for v in ventas],
+        "data": [v["total"] for v in ventas]
+    }
+
+    return JsonResponse(data)
+
+
+
+def productos_top(request):
+    productos = (
+        DetalleVenta.objects
+        .values('producto__nombre')
+        .annotate(total_vendido=Sum('cantidad'))
+        .order_by('-total_vendido')[:5]
+    )
+
+    data = {
+        "labels": [p["producto__nombre"] for p in productos],
+        "data": [p["total_vendido"] for p in productos]
+    }
+
+    return JsonResponse(data)

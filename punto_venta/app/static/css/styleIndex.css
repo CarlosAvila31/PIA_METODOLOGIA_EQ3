@@ -48,7 +48,7 @@ body {
   margin-bottom: 20px;
 }
 
-#caja-link, #venta-link, #logout-link {
+#caja-link, #venta-link, #logout-link, #informes-link {
   display: block;
   color: #fff;
   text-decoration: none;
@@ -59,7 +59,7 @@ body {
   transition: background 0.3s ease;
 }
 
-#caja-link:hover, #venta-link:hover, #logout-link:hover {
+#caja-link:hover, #venta-link:hover, #logout-link:hover, #informes-link:hover {
   background: #786246;
 }
 

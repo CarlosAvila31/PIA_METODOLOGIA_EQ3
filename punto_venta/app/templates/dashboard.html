@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+/* ===== CONTENEDOR ===== */
+.dashboard-container {
+    padding: 20px;
+}
+
+/* ===== TITULO ===== */
+.dashboard-title {
+    font-size: 28px;
+    color: #5a3e2b;
+    margin-bottom: 20px;
+}
+
+/* ===== KPIs ===== */
+.kpi-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.kpi-card {
+    background: #f5eee6;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.kpi-title {
+    color: #8b6f47;
+    font-size: 14px;
+}
+
+.kpi-value {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3e2c23;
+}
+
+/* ===== GRAFICAS ===== */
+.chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.chart-card {
+    background: #f5eee6;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.chart-title {
+    margin-bottom: 10px;
+    color: #5a3e2b;
+}
+</style>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-title"> Informes de Ventas</div>
+
+    <!-- KPIs -->
+    <div class="kpi-container">
+        <div class="kpi-card">
+            <div class="kpi-title">Total Ventas</div>
+            <div class="kpi-value" id="totalVentas">$0</div>
+        </div>
+
+        <div class="kpi-card">
+            <div class="kpi-title">Ticket Promedio</div>
+            <div class="kpi-value" id="ticketPromedio">$0</div>
+        </div>
+
+        <div class="kpi-card">
+            <div class="kpi-title">Producto Top</div>
+            <div class="kpi-value" id="productoTop">-</div>
+        </div>
+    </div>
+
+    <!-- GRÁFICAS -->
+    <div class="chart-grid">
+
+        <div class="chart-card">
+            <div class="chart-title">Ventas por día</div>
+            <canvas id="ventasChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-title">Productos más vendidos</div>
+            <canvas id="productosChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// ===== VENTAS POR DÍA =====
+fetch("/analytics/ventas-dia/")
+.then(res => res.json())
+.then(data => {
+    new Chart(document.getElementById("ventasChart"), {
+        type: 'line',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: 'Ventas',
+                data: data.data
+            }]
+        }
+    });
+});
+
+// ===== PRODUCTOS TOP =====
+fetch("/analytics/productos-top/")
+.then(res => res.json())
+.then(data => {
+    new Chart(document.getElementById("productosChart"), {
+        type: 'bar',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: 'Cantidad vendida',
+                data: data.data
+            }]
+        }
+    });
+});
+
+// ===== KPIs =====
+fetch("/analytics/resumen/")
+.then(res => res.json())
+.then(data => {
+    document.getElementById("totalVentas").innerText = "$" + data.total;
+    document.getElementById("ticketPromedio").innerText = "$" + data.promedio;
+    document.getElementById("productoTop").innerText = data.producto_top;
+});
+</script>
+
+{% endblock %}

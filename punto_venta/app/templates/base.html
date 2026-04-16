@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema{% endblock %}</title>
+</head>
+
+<body>
+
+
+<style>
+    
+    #venta-link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: #b7966b;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    width: 200px;
+    height: 20px;
+}
+
+    #venta-link:hover {
+    background: #786246;
+    width: 210px;
+    height: 20px;
+}
+
+</style>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>Coffee Shop</h2>
+    <ul>
+        <li><a href="/venta/" id="venta-link">Ventas</a></li>
+    </ul>
+</div>
+
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
