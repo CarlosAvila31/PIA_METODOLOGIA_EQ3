@@ -15,4 +15,7 @@ urlpatterns = [
     path('analytics/ventas-dia/', views.ventas_por_dia),
     path('analytics/productos-top/', views.productos_top),
     path('analytics/resumen/', views.resumen),
+    path('analytics/ventas-hora/', views.ventas_por_hora),
+    path('analytics/metodo-pago/', views.ventas_metodo_pago),
+    path('analytics/ticket-promedio/', views.ticket_promedio_dia),
 ]

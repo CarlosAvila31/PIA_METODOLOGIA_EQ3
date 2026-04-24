@@ -7,11 +7,12 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from datetime import datetime, timedelta
 from django.utils import timezone 
+from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import Group, User
 from django.db import models
 from django.db.models import Sum, Avg
-from django.db.models.functions import TruncDate
+from django.db.models.functions import TruncDate, ExtractHour
 
 
 
@@ -159,20 +160,41 @@ def resumen(request):
 
 
 def ventas_por_dia(request):
-    ventas = (
-        Venta.objects
-        .annotate(fecha_dia=TruncDate('fecha_hora'))
+    ventas = Venta.objects.all()
+
+    inicio = request.GET.get('inicio')
+    fin = request.GET.get('fin')
+
+    if inicio:
+        fecha_inicio = parse_date(inicio)
+        if fecha_inicio:
+            ventas = ventas.filter(fecha_hora__date__gte=fecha_inicio)
+
+    if fin:
+        fecha_fin = parse_date(fin)
+        if fecha_fin:
+            ventas = ventas.filter(fecha_hora__date__lte=fecha_fin)
+
+    data = (
+        ventas
+        .annotate(fecha_dia=TruncDate('fecha_hora')) 
         .values('fecha_dia')
         .annotate(total=Sum('total'))
         .order_by('fecha_dia')
     )
 
-    data = {
-        "labels": [v["fecha_dia"].strftime("%Y-%m-%d") for v in ventas],
-        "data": [v["total"] for v in ventas]
-    }
+    labels = []
+    valores = []
 
-    return JsonResponse(data)
+    for d in data:
+        if d["fecha_dia"]:
+            labels.append(d["fecha_dia"].strftime("%Y-%m-%d"))
+            valores.append(d["total"])
+
+    return JsonResponse({
+        "labels": labels,
+        "data": valores
+    })
 
 
 
@@ -190,3 +212,61 @@ def productos_top(request):
     }
 
     return JsonResponse(data)
+
+def ventas_por_hora(request):
+
+    ventas = Venta.objects.all()
+
+    inicio = request.GET.get('inicio')
+    fin = request.GET.get('fin')
+
+    if inicio:
+        fecha_inicio = parse_date(inicio)
+        if fecha_inicio:
+            ventas = ventas.filter(fecha_hora__date__gte=fecha_inicio)
+
+    if fin:
+        fecha_fin = parse_date(fin)
+        if fecha_fin:
+            ventas = ventas.filter(fecha_hora__date__lte=fecha_fin)
+
+    ventas = (
+        ventas
+        .annotate(hora=ExtractHour('fecha_hora'))
+        .values('hora')
+        .annotate(total=Sum('total'))
+        .order_by('hora')
+    )
+    return JsonResponse({
+        "labels": [f"{v['hora']}:00" for v in ventas],
+        "data": [v["total"] for v in ventas]
+    })
+
+
+
+def ventas_metodo_pago(request):
+    data = (
+        Venta.objects
+        .values('metodo_pago')
+        .annotate(total=Sum('total'))
+    )
+
+    return JsonResponse({
+        "labels": [d["metodo_pago"] for d in data],
+        "data": [d["total"] for d in data]
+    })
+
+
+def ticket_promedio_dia(request):
+    data = (
+        Venta.objects
+        .annotate(fecha_dia=TruncDate('fecha_hora'))
+        .values('fecha_dia')
+        .annotate(promedio=Avg('total'))
+        .order_by('fecha_dia')
+    )
+
+    return JsonResponse({
+        "labels": [d["fecha_dia"].strftime("%Y-%m-%d") for d in data if d["fecha_dia"]],
+        "data": [round(d["promedio"], 2) for d in data if d["fecha_dia"]]
+    })

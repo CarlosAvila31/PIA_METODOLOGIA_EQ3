@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
 <style>
@@ -43,6 +44,14 @@
 }
 
 /* ===== GRAFICAS ===== */
+
+.charts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
 .chart-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -56,9 +65,22 @@
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
 
+
 .chart-title {
     margin-bottom: 10px;
     color: #5a3e2b;
+}
+
+.chart-card.center {
+    grid-column: span 2;       /* ocupa toda la fila */
+    justify-self: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.chart-card.center canvas {
+    max-width: 600px;
+    max-height: 600px;
 }
 </style>
 
@@ -90,12 +112,33 @@
         <div class="chart-card">
             <div class="chart-title">Ventas por día</div>
             <canvas id="ventasChart"></canvas>
+            <input type="date" id="fechaInicio">
+            <input type="date" id="fechaFin">
+            <button onclick="cargarGraficas()">Filtrar</button>
         </div>
 
         <div class="chart-card">
             <div class="chart-title">Productos más vendidos</div>
             <canvas id="productosChart"></canvas>
         </div>
+
+        <div class="chart-card">
+            <div class="chart-title">Ventas por Hora</div>
+            <canvas id="horaChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-title">Ticket Promedio por Día</div>
+            <canvas id="ticketChart"></canvas>
+        </div>
+
+        <div class="chart-card center">
+            <div class="chart-title">Ventas por Método de Pago</div>
+            <canvas id="metodoPagoChart"></canvas>
+        </div>
+
+        
+
 
     </div>
 
@@ -105,6 +148,18 @@
 
 <script>
 // ===== VENTAS POR DÍA =====
+
+let ventasChart = null;
+
+const inicio = document.getElementById("fechaInicio").value;
+const fin = document.getElementById("fechaFin").value;
+
+let url = "/analytics/ventas-dia/";
+
+if (inicio && fin) {
+    url += `?inicio=${inicio}&fin=${fin}`;
+}
+
 fetch("/analytics/ventas-dia/")
 .then(res => res.json())
 .then(data => {
@@ -113,7 +168,7 @@ fetch("/analytics/ventas-dia/")
         data: {
             labels: data.labels,
             datasets: [{
-                label: 'Ventas',
+                label: 'Ventas por día $',
                 data: data.data
             }]
         }
@@ -144,6 +199,87 @@ fetch("/analytics/resumen/")
     document.getElementById("ticketPromedio").innerText = "$" + data.promedio;
     document.getElementById("productoTop").innerText = data.producto_top;
 });
+
+fetch("/analytics/ventas-hora/")
+.then(res => res.json())
+.then(data => {
+    new Chart(document.getElementById("horaChart"), {
+        type: 'bar',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: 'Ventas por hora $',
+                data: data.data
+            }]
+        }
+    });
+});
+
+
+
+function cargarGraficas() {
+    const inicio = document.getElementById("fechaInicio").value;
+    const fin = document.getElementById("fechaFin").value;
+
+    fetch(`/analytics/ventas-dia/?inicio=${inicio}&fin=${fin}`)
+    .then(res => res.json())
+    .then(data => {
+
+        const canvas = document.getElementById("ventasChart");
+
+        const chartExistente = Chart.getChart(canvas);
+
+        // destruir gráfica anterior si existe
+        if (chartExistente) {
+            chartExistente.destroy();
+        }
+
+        // crear nueva
+        new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Ventas por día $',
+                    data: data.data
+                }]
+            }
+        });
+    });
+}
+
+
+fetch("/analytics/metodo-pago/")
+.then(res => res.json())
+.then(data => {
+    new Chart(document.getElementById("metodoPagoChart"), {
+        type: 'pie',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                data: data.data
+            }]
+        }
+    });
+});
+
+
+fetch("/analytics/ticket-promedio/")
+.then(res => res.json())
+.then(data => {
+    new Chart(document.getElementById("ticketChart"), {
+        type: 'line',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: 'Ticket promedio $',
+                data: data.data
+            }]
+        }
+    });
+});
+
+
 </script>
 
 {% endblock %}
